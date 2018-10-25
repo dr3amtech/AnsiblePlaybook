@@ -1,0 +1,8 @@
+---
+
+default_user: cons
+default_user_full_name: Brit Butler
+default_user_email: brit@kingcons.io
+
+default_user_pub_key: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa.pub"
+default_user_pri_key: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
