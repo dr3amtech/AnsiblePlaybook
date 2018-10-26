@@ -1,6 +1,6 @@
 ---
 - name: Web01
-  hosts: all
+  hosts: officalfreebsd.com
   become: yes
   gather_facts: False
   pre_tasks:
