@@ -1,13 +1,11 @@
 ---
 - name: Web01
-  stat:
-    path: /usr/local/bin/python
-  tags: python
   hosts: all
   become: yes
   gather_facts: False
   pre_tasks:
     - name: Install python for Ansible
+      path: /usr/local/bin/python
       raw: test -e /usr/local/bin/python || (pkg -y update && pkg install /usr/local/bin/python)
       changed_when: False
     - setup: # aka gather_facts
