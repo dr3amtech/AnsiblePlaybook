@@ -1,0 +1,9 @@
+---
+- name: Web01
+  hosts: officalfreebsd
+  become: yes
+  gather_facts: False
+  pre_tasks:
+    - name: Install Ansible
+      raw: sudo pkg install py27-ansible
+     
