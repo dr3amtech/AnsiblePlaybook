@@ -1,5 +1,8 @@
 ---
 - name: Web01
+  stat:
+    path: /usr/local/bin/python
+  tags: python
   hosts: all
   become: yes
   gather_facts: False
