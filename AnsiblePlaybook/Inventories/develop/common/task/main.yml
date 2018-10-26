@@ -1,14 +1,14 @@
 ---
-- name: be sure ntp is installed
-  yum:
+-name: be sure ntp is installed
+   yum:
     name: ntp
     state: installed
-  tags: ntp
+ tags: ntp
 
-- name: be sure ntp is configured
-  template:
-    src: ntp.conf.j2
-    dest: /etc/ntp.conf
+-name: be sure ntp is configured
+ template:
+   src: ntp.conf.j2
+   dest: /etc/ntp.conf
   notify:
     - restart ntpd
   tags: ntp
