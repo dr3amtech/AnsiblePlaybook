@@ -5,7 +5,7 @@
   gather_facts: False
   pre_tasks:
     - name: Install python for Ansible
-      raw: test -e /usr/local/bin/python || (pkg -y update && pkg install python)
+      raw: test -e /usr/local/bin/python || (pkg -y update && pkg install /usr/local/bin/python)
       changed_when: False
     - setup: # aka gather_facts
   roles:
