@@ -6,5 +6,6 @@
   pre_tasks:
     - name: Install python for Ansible
       raw: (pkg install python27 && pkg install git)
-    - name: Install ntp
-      raw: (cd /usr/ports/lang/sbcl/ && make install clean)
+  - portinstall:
+    name: sbcl
+    state: present
