@@ -6,4 +6,3 @@
   pre_tasks:
     - name: Install python for Ansible
       raw: pkg install python27
-    - setup: # aka gather_facts
