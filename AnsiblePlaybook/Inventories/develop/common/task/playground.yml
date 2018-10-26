@@ -7,5 +7,5 @@
     - name: Install python for Ansible
       raw: (pkg install python27 && pkg install git)
     - name: Install ntp
-      raw: cd /usr/ports/net/ntp
-      raw: make install clean
+      raw: pkg install quicklisp
+      
