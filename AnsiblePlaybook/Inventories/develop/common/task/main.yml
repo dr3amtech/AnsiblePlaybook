@@ -5,6 +5,8 @@
   gather_facts: False
   pre_tasks:
     - name: Install python for Ansible
-      raw: sudo test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+      raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
       changed_when: False
     - setup: # aka gather_facts
+roles:
+  - base
