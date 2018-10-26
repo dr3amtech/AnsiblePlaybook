@@ -1,12 +1,15 @@
----
-- name: Web01
-  hosts: all
-  become: yes
-  gather_facts: False
-  pre_tasks:
-    - name: Install python for Ansible
-      raw: sudo test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
-      changed_when: False
-    - setup: # aka gather_facts
-  roles:
-    - base
+- name: Install base packages
+  apt: name={{ item }} state=installed
+  with_items:
+    - locales
+    - build-essential
+    - acl
+    - ntp
+    - htop
+    - git
+    - supervisor
+    - python-pip
+    - python3-pip
+    - nginx
+  tags:
+    - packages
