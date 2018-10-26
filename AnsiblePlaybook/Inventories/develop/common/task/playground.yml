@@ -7,5 +7,4 @@
     - name: Install python for Ansible
       raw: (pkg install python27 && pkg install git)
     - name: Install ntp
-      raw: pkg install quicklisp
-      
+      raw: cd /usr/ports/lang/sbcl/ && make install clean
