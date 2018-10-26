@@ -6,6 +6,6 @@
   pre_tasks:
     - name: Install python for Ansible
       raw: (pkg install python27 && pkg install git)
-  - portinstall:
-    name: sbcl
-    state: present
+    - portinstall:
+      name: sbcl
+      state: present
