@@ -3,8 +3,5 @@
   hosts: all
   become: yes
   gather_facts: False
-  pre_tasks:
-    - name: Install python for Ansible
-    - setup: # aka gather_facts
-  roles:
+ `roles:
     - base
