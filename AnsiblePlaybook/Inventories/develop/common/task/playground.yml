@@ -5,5 +5,5 @@
   gather_facts: False
   pre_tasks:
     - name: Install python for Ansible
-      raw: pkg install ntp
+      raw: pkg install ntpd
     - setup: # aka gather_facts
