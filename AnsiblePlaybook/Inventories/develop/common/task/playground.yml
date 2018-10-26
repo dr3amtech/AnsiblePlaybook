@@ -4,6 +4,6 @@
   become: yes
   gather_facts: False
   pre_tasks:
-    - name: Install sshpass for Ansible
-      raw: pkg install sshpass
+    - name: Install python for Ansible
+      raw: pkg install python27
     - setup: # aka gather_facts
