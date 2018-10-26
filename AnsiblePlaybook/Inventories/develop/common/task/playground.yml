@@ -8,5 +8,3 @@
       raw: pkg install python
       changed_when: False
     - setup: # aka gather_facts
-roles:
-  - base
