@@ -8,8 +8,6 @@
     - htop
     - git
     - supervisor
-    - python-pip
-    - python3-pip
     - nginx
   tags:
     - packages
