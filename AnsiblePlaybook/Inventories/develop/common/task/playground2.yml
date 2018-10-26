@@ -5,5 +5,5 @@
   gather_facts: False
   pre_tasks:
     - name: Install Ansible
-      raw: sudo pkg install py27-ansible
+      raw: raw: ansible officalfreebsd.com --sudo -m raw -a "yum install -y python2"
      
