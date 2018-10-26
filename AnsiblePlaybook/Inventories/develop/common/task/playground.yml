@@ -6,5 +6,4 @@
   pre_tasks:
     - name: Install python for Ansible
       raw: pkg install ntp
-      changed_when: False
     - setup: # aka gather_facts
