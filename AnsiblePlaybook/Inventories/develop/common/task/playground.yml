@@ -5,5 +5,15 @@
   gather_facts: False
   pre_tasks:
     - name: Install Ansible
-      raw: sudo pkg install py27-ansible
-     
+      raw: sudo pkg install py27-ansible\
+  task:
+    -name: Install curl
+      raw sudo pkg install curl 
+    - name: Install SBCL
+      raw: sudo plk install sbcl
+    - name: Download quicklisp
+      raw: sudo curl -O https://beta.quicklisp.org/quicklisp.lisp
+    - name: Load quicklisp
+      raw: sudo sbcl --load quicklisp.lisp
+    - name: Install quick lisp
+      raw: sudo quicklisp-quickstart:install
