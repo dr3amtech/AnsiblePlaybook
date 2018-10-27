@@ -4,16 +4,16 @@
   hosts: servers
   become: yes
   gather_facts: False
-  pre_tasks:
+  tasks:
     - name: Install Ansible
-      raw: pkg install py27-ansible
+       yum: pkg install py27-ansible
     - name: Install curl
-      raw: pkg install curl 
+       yum: pkg install curl 
     - name: Install SBCL
-      raw: pkg install sbcl
+       yum: pkg install sbcl
     - name: Download quicklisp
-      raw: curl -O https://beta.quicklisp.org/quicklisp.lisp
+       yum: curl -O https://beta.quicklisp.org/quicklisp.lisp
     - name: Load quicklisp
-      raw: sbcl --load quicklisp.lisp
+       yum: sbcl --load quicklisp.lisp
     - name: Install quick lisp
-      raw: quicklisp-quickstart:install
+       yum: quicklisp-quickstart:install
