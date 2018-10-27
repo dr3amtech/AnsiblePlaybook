@@ -4,6 +4,7 @@
   hosts: servers
   become: yes
   gather_facts: False
+  ansible_python_interpreter=/usr/bin/local/python2
   pre_tasks:
     - name: Install python for Ansible
       raw: test -e /usr/bin/local/python2 || (pkg -y update && pkg install -y python2)
