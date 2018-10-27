@@ -8,7 +8,7 @@
    ansible_python_interpreter: "/usr/bin/local/python2.7"
   pre_tasks:
     - name: Install python for Ansible
-      raw: test -e /usr/bin/local/python2.7 || (pkg -y update && pkg install -y python2)
+      raw: /usr/bin/local/python2.7 || (pkg -y update && pkg install -y python2)
       changed_when: False
     - setup: # aka gather_facts
   tasks:
