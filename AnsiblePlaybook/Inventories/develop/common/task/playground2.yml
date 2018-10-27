@@ -5,7 +5,7 @@
   gather_facts: False
   pre_tasks:
     - name: Install Ansible
-      raw: sudo pkg install py27-ansible\
+      raw: sudo pkg install py27-ansible
     - name: Install curl
       raw: sudo pkg install curl 
     - name: Install SBCL
