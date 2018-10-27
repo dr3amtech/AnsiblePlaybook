@@ -6,4 +6,6 @@
   gather_facts: False
   tasks:
   - name: return motd to registered var
+    command: sudo pkg install python27
+  - name: return motd to registered var
     command: sudo pkg install py27-ansible
