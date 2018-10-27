@@ -4,5 +4,6 @@
   hosts: servers
   become: yes
   gather_facts: False
-- name: return motd to registered var
-  command: sudo pkg install py27-ansible
+  tasks
+  - name: return motd to registered var
+    command: sudo pkg install py27-ansible
