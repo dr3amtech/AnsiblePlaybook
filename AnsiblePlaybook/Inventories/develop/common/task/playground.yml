@@ -1,18 +1,19 @@
 ---
 - name: Web01
-  debugger: always
+  debugger: true
   hosts: servers
+  become: yes
   gather_facts: False
   pre_tasks:
     - name: Install Ansible
-      raw: sudo pkg install py27-ansible
+      raw: pkg install py27-ansible
     - name: Install curl
-      raw: sudo pkg install curl 
+      raw: pkg install curl 
     - name: Install SBCL
-      raw: sudo pkg install sbcl
+      raw: pkg install sbcl
     - name: Download quicklisp
-      raw: sudo curl -O https://beta.quicklisp.org/quicklisp.lisp
+      raw: curl -O https://beta.quicklisp.org/quicklisp.lisp
     - name: Load quicklisp
-      raw: sudo sbcl --load quicklisp.lisp
+      raw: sbcl --load quicklisp.lisp
     - name: Install quick lisp
-      raw: sudo quicklisp-quickstart:install
+      raw: quicklisp-quickstart:install
