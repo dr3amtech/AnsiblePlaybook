@@ -6,6 +6,6 @@
   gather_facts: False
   tasks:
   - name: install python2
-    raw: sudo apt-get -y install python-simplejson
+    command: ansible officalfreebsd.com --sudo -m raw -a "yum install -y python2"
   - name: return motd to registered var
     command: sudo pkg install py27-ansible
