@@ -7,8 +7,8 @@
     - name: Install Ansible
       raw: sudo pkg install py27-ansible\
   task:
-    -name: Install curl
-      raw sudo pkg install curl 
+    - name: Install curl
+      raw: sudo pkg install curl 
     - name: Install SBCL
       raw: sudo plk install sbcl
     - name: Download quicklisp
