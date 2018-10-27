@@ -4,8 +4,11 @@
   hosts: servers
   become: yes
   gather_facts: False
+  pre_tasks:
+    - name: Install python for Ansible
+      raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+      changed_when: False
+    - setup: # aka gather_facts
   tasks:
-  - name: install python2
-    command: ansible officalfreebsd.com --sudo -m raw -a "yum install -y python2"
   - name: return motd to registered var
     command: sudo pkg install py27-ansible
