@@ -1,7 +1,7 @@
 ---
 - name: Web01
+  debugger: true
   hosts: servers
-  become: yes
   gather_facts: False
   pre_tasks:
     - name: Install Ansible
