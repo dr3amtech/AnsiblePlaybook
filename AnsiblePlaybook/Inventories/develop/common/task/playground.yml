@@ -6,11 +6,6 @@
   gather_facts: False
   vars:
    ansible_python_interpreter: "/usr/bin/local/python2.7"
-  pre_tasks:
-    - name: Install python for Ansible
-      raw: /usr/bin/local/python2.7 || (pkg -y update && pkg install -y python2)
-      changed_when: False
-    - setup: # aka gather_facts
   tasks:
   - name: return motd to registered var
     command: sudo pkg install py27-ansible
