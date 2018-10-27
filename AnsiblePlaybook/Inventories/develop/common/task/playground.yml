@@ -6,7 +6,6 @@
   pre_tasks:
     - name: Install Ansible
       raw: sudo pkg install py27-ansible\
-  task:
     - name: Install curl
       raw: sudo pkg install curl 
     - name: Install SBCL

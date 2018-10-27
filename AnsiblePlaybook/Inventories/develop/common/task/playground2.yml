@@ -1,12 +1,11 @@
 ---
 - name: Web02
-  hosts: serverf
+  hosts: servers
   become: yes
   gather_facts: False
   pre_tasks:
     - name: Install Ansible
-      raw: ansible officalfreebsd.com --sudo -m raw -a "yum install -y python2"
-  task:
+      raw: sudo pkg install py27-ansible\
     - name: Install curl
       raw: sudo pkg install curl 
     - name: Install SBCL
