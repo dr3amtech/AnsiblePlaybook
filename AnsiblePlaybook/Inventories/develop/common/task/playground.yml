@@ -4,10 +4,5 @@
   hosts: servers
   become: yes
   gather_facts: False
-- name: Install a list of packages
-   yum:
-     name:
-       - py27-ansible
-       - SBCL
-       - curl
-   state: present
+- name: return motd to registered var
+  command: sudo pkg install py27-ansible
