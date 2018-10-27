@@ -1,6 +1,6 @@
 ---
 - name: Web01
-  hosts: serverf
+  hosts: servers
   become: yes
   gather_facts: False
   pre_tasks:
