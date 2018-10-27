@@ -5,15 +5,15 @@
   become: yes
   gather_facts: False
   tasks:
-    - name: Install Ansible
-       yum: pkg install py27-ansible
-    - name: Install curl
-       yum: pkg install curl 
-    - name: Install SBCL
-       yum: pkg install sbcl
-    - name: Download quicklisp
-       yum: curl -O https://beta.quicklisp.org/quicklisp.lisp
-    - name: Load quicklisp
-       yum: sbcl --load quicklisp.lisp
-    - name: Install quick lisp
-       yum: quicklisp-quickstart:install
+   - name: Install Ansible
+      yum: pkg install py27-ansible
+   - name: Install curl
+      yum: pkg install curl 
+   - name: Install SBCL
+      yum: pkg install sbcl
+   - name: Download quicklisp
+      yum: curl -O https://beta.quicklisp.org/quicklisp.lisp
+   - name: Load quicklisp
+      yum: sbcl --load quicklisp.lisp
+   - name: Install quick lisp
+      yum: quicklisp-quickstart:install
