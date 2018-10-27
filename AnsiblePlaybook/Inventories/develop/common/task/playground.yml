@@ -1,6 +1,6 @@
 ---
 - name: Web01
-  debugger: true
+  debugger: always
   hosts: servers
   gather_facts: False
   pre_tasks:
