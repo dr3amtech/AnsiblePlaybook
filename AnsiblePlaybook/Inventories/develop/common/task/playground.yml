@@ -14,12 +14,12 @@
     - setup: # aka gather_facts
   tasks:
   - name: Install SBCL
-    command: pkg install sbcl
+    raw: pkg install sbcl
   - name: Install curl
-    command: pkg install curl 
+    raw: pkg install curl 
   - name: Download quicklisp
-    command: curl -O https://beta.quicklisp.org/quicklisp.lisp
+    raw: curl -O https://beta.quicklisp.org/quicklisp.lisp
   - name: Load quicklisp
-    command: sbcl --load quicklisp.lisp
+    raw: sbcl --load quicklisp.lisp
   - name: Install quick lisp
-    command: quicklisp-quickstart:install
+    raw: quicklisp-quickstart:install
