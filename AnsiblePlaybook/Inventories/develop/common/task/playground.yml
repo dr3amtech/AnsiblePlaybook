@@ -13,6 +13,8 @@
       changed_when: False
     - setup: # aka gather_facts
   tasks:
+  - pause:
+        minutes: 1
   - name: Install SBCL
     raw: pkg install sbcl
   - setup: # aka gather_facts
