@@ -15,7 +15,7 @@
   tasks:
   - name: Install SBCL
     command: pkg install sbcl
-   - name: Install curl
+  - name: Install curl
     command: pkg install curl 
   - name: Download quicklisp
     command: curl -O https://beta.quicklisp.org/quicklisp.lisp
