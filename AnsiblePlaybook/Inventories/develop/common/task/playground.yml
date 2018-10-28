@@ -13,16 +13,13 @@
       changed_when: False
     - setup: # aka gather_facts
   tasks:
-  - pause:
-        minutes: 1
   - name: Install SBCL
     command: pkg install -y sbcl
-  - setup: # aka gather_facts
+  - name: remove line to be able to succesfully use quicklisp
+    command: sed -i .bak 'id' /usr/local/etc/sbclrc
   - name: Install curl
     command: pkg install -y curl 
   - name: Download quicklisp
-    command: curl -O https://beta.quicklisp.org/quicklisp.lisp
+    command: curl -O beta.quicklisp.org/quicklisp.lisp
   - name: Load quicklisp
     command: sbcl --load quicklisp.lisp
-  - name: Install quick lisp
-    command: quicklisp-quickstart:install
