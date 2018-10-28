@@ -16,10 +16,10 @@
   - pause:
         minutes: 1
   - name: Install SBCL
-    command: pkg install sbcl
+    command: pkg install -y sbcl
   - setup: # aka gather_facts
   - name: Install curl
-    command: pkg install curl 
+    command: pkg install -y curl 
   - name: Download quicklisp
     command: curl -O https://beta.quicklisp.org/quicklisp.lisp
   - name: Load quicklisp
