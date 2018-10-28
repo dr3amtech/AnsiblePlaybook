@@ -13,10 +13,10 @@
       changed_when: False
     - setup: # aka gather_facts
   tasks:
-  - name: Install curl
-    command: pkg install curl 
   - name: Install SBCL
     command: pkg install sbcl
+   - name: Install curl
+    command: pkg install curl 
   - name: Download quicklisp
     command: curl -O https://beta.quicklisp.org/quicklisp.lisp
   - name: Load quicklisp
