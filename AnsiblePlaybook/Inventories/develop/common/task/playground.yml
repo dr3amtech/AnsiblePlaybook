@@ -16,7 +16,7 @@
   - name: Install SBCL
     command: pkg install -y sbcl
   - name: remove line to be able to succesfully use quicklisp
-    command: sed -i .bak 'id' /usr/local/etc/sbclrc || exit 0
+    raw: sed -i .bak 'id' /usr/local/etc/sbclrc || exit 0
   - name: Install curl
     command: pkg install -y curl 
   - name: Download quicklisp
