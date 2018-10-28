@@ -15,6 +15,7 @@
   tasks:
   - name: Install SBCL
     raw: pkg install sbcl
+  - setup: # aka gather_facts
   - name: Install curl
     raw: pkg install curl 
   - name: Download quicklisp
