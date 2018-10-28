@@ -3,6 +3,7 @@
   debugger: true
   hosts: servers
   become: yes
+  become_method: sudo
   gather_facts: False
   vars:
    ansible_python_interpreter: "/usr/local/bin/python2.7"
@@ -12,15 +13,13 @@
       changed_when: False
     - setup: # aka gather_facts
   tasks:
-  - name: return motd to registered var
-    command: sudo pkg install py27-ansible
   - name: Install curl
-    command: sudo pkg install curl 
+    command: pkg install curl 
   - name: Install SBCL
-    command: sudo plk install sbcl
+    command: pkg install sbcl
   - name: Download quicklisp
-    command: sudo curl -O https://beta.quicklisp.org/quicklisp.lisp
+    command: curl -O https://beta.quicklisp.org/quicklisp.lisp
   - name: Load quicklisp
-    command: sudo sbcl --load quicklisp.lisp
+    command: sbcl --load quicklisp.lisp
   - name: Install quick lisp
-    command: sudo quicklisp-quickstart:install
+    command: quicklisp-quickstart:install
