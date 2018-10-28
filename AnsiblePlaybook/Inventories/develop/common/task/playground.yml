@@ -1,5 +1,5 @@
 ---
-- name: Web01
+- name: AnsibleConfiguration
   debugger: true
   hosts: servers
   become: yes
@@ -18,5 +18,7 @@
   - name: remove line to be able to succesfully use quicklisp
     raw: sed -i .bak 'id' /usr/local/etc/sbclrc || exit 0
   - name: Install curl
-    command: pkg install -y curl 
+    command: pkg install -y curl
+  - name: Insatll Git
+    command: pkg install -y git
   
