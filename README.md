@@ -1,3 +1,3 @@
 # AnsiblePlaybook
-CI/CD   
+CI/CD    
 
