@@ -1,3 +1,2 @@
 # AnsiblePlaybook
-CI/CD HumanoidPlayground 
-     
+CI/CD HumanoidPlayground
