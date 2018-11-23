@@ -15,8 +15,14 @@
   tasks:
   - name: Install SBCL
     command: pkg install -y sbcl
-  - name: remove line to be able to succesfully use quicklisp
-    raw: sed -i .bak 'id' /usr/local/etc/sbclrc || exit 0
+  - name: Load QuickLisp
+    command: sbcl --load quicklisp.lisp
+  - name: Install QuickLisp
+    command: (quicklisp-quickstart:install)
+  - name: Install project Prove
+    command: (ql:quickload :prove)
+  -name: Exit SBCL MODE
+    command: (quit)
   - name: Install curl
     command: pkg install -y curl
   - name: Insatll Git
