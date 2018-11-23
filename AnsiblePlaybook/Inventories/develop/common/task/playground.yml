@@ -21,7 +21,7 @@
     command: (quicklisp-quickstart:install)
   - name: Install project Prove
     command: (ql:quickload :prove)
-  -name: Exit SBCL MODE
+  - name: Exit SBCL MODE
     command: (quit)
   - name: Install curl
     command: pkg install -y curl
