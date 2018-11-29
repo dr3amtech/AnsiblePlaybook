@@ -1,0 +1,39 @@
+
+
+
+#Set postgresql state when changes are made
+postgresql_restarted_state: "restarted"
+
+
+
+postgresql_python_libary: python-pycopg2
+postgresql_user: postgresql
+postgresql_group: postgresql
+
+postgresql_unx_socket_directories:
+ - /var/run/postgresql
+
+postgresql_unix_socket_directories:started
+postgresq2l_service_enabled: true 
+
+#Global Configuration optioons that will be set in postgresql.conf
+postgresql_global_config_options:
+ - option: unix_socket_directories
+   value: '{{postgresql_unix_socket_directories | join(",")}}'
+#host based authentication (hba) entries to be added to the pg_hba.conf
+#This var default reflect the defaults that come with a fresh installation
+postgresql_hba_entries:
+ - {type: local, database: all, user: postgres, auth_method:peer}
+ - {type: local, database: all, all, auth_method: peer}
+ - {type: host, database: all, user: all, address: '127.0.0.1/32',auth_method:md5}
+ - {type: host, database: all, user: all, address: '::1/128', auth_method:md5}
+ 
+
+ #Ensure the database exist
+ postgresql_database: []
+ 
+ 
+ #ensure that the users exist
+ postgresql_users: []
+ 
+ 

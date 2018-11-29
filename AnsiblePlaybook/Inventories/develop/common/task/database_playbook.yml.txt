@@ -1,0 +1,12 @@
+---
+- name: converge
+  hosts: all
+  become: true
+vars:
+-/vars/vars.yml
+  
+  var:
+    postgresql_database:
+      - name: {{remote_users}}
+    postgresql_user:
+      - naem {{password}}  

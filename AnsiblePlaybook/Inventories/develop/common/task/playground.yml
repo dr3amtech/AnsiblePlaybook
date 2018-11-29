@@ -27,4 +27,7 @@
     command: pkg install -y curl
   - name: Insatll Git
     command: pkg install -y git
-  
+  - name: Install psycopg2
+    command: pkg install py27-psycopg2
+  - name:
+    command: pkg install postgresql96-server postgresql postgresql96-client 
