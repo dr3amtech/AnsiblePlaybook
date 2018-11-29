@@ -13,19 +13,19 @@
       changed_when: False
     - setup: # aka gather_facts
   tasks:
+  -name: Install pip
+    command: pkg install py27-pip
   - name: Install SBCL
     command: pkg install -y sbcl
   - name: Load QuickLisp
     command: sbcl --load quicklisp.lisp
   - name: Install QuickLisp
-    command: (quicklisp-quickstart:install)
+    command: sbcl (quicklisp-quickstart:install)
   - name: Install project Prove
     command: (ql:quickload :prove)
-  - name: Exit SBCL MODE
-    command: (quit)
   - name: Insatll Git
     command: pkg install -y git
   - name: Install psycopg2
-    command: pkg install py27-psycopg2
+    command: pip install psycopg2
   - name:
     command: pkg install postgresql96-server postgresql postgresql96-client 
