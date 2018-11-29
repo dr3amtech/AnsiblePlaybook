@@ -23,8 +23,6 @@
     command: (ql:quickload :prove)
   - name: Exit SBCL MODE
     command: (quit)
-  - name: Install curl
-    command: pkg install -y curl
   - name: Insatll Git
     command: pkg install -y git
   - name: Install psycopg2
