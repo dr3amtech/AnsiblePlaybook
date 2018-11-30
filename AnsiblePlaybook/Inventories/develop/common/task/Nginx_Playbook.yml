@@ -1,0 +1,12 @@
+---
+- name: Nginx
+  hosts: servers
+  tasks:
+   - name: nginx
+     package:
+	    name: nginx
+		state: present
+   - name: Start Nginx
+     service:
+	    name: nginx
+		state: started

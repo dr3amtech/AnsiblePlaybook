@@ -1,7 +1,17 @@
 ---
 - name: converge
-  hosts: all
+  hosts: 127.0.0.1
   become: true
+  task:
+   - name: postgresql96-server
+     package:
+        name:postgresql96-server
+        state: present 
+   - name:postgresql96-server
+     service:
+        name: postgresql96-server
+        state: present
+         
 vars:
 -/vars/vars.yml
   
