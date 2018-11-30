@@ -2,21 +2,22 @@
 - name: converge
   hosts: server
   become: true
-  task:
-   - name: postgresql96-server
-     package:
-        name:postgresql96-server
-        state: present 
-   - name:postgresql96-server
-     service:
-        name: postgresql96-server
-        state: present
-         
-vars:
--/vars/vars.yml
+  vars:
+    -/vars/vars.yml
   
   var:
     postgresql_database:
       - name: {{remote_users}}
     postgresql_user:
       - naem: {{password}}  
+  task:
+   - name: postgresql96-server
+     package:
+        name:postgresql96-server
+        state: present 
+   - name: postgresql96-server
+     service:
+        name: postgresql96-server
+        state: started
+         
+
