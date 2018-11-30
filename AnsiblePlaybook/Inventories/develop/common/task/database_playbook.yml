@@ -1,6 +1,6 @@
 ---
 - name: converge
-  hosts: 127.0.0.1
+  hosts: server
   become: true
   task:
    - name: postgresql96-server
