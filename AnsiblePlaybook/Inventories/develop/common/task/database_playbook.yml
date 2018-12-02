@@ -3,17 +3,31 @@
   hosts: server
   become: true
   
-  var:
+#create a new database with name test
+- postgresql_db
+    name: test
+    encoding: UTF-8
+    lc_collate: de_DE.UTF-8
+    lc_ctype: de_DE.UTF-8
+
+- postgressql_db:
+    name: test
+    state: dump
+    target: /tmp/test.sql
+    
+  vars:
     postgresql_database:
-      - name: {{remote_users}}
+      - name: "{{remote_users}}"
     postgresql_user:
-      - naem: {{password}}  
-  task:
+      - naem: "{{password}}"  
+  tasks:
    - name: postgresql96-server
      package:
-        name:postgresql96-server
+        name: postgresql96-server
         state: present 
    - name: postgresql96-server
      service:
         name: postgresql96-server
         state: started
+# dump requires a target definition to which the database will be backed up
+# present implies that the database should be created if necessary
