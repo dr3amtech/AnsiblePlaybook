@@ -2,8 +2,6 @@
 - name: converge
   hosts: server
   become: true
-  vars:
-    -/vars/vars.yml
   
   var:
     postgresql_database:
@@ -19,5 +17,3 @@
      service:
         name: postgresql96-server
         state: started
-         
-
