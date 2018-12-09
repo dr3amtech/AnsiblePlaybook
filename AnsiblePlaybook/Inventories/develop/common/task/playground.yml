@@ -13,6 +13,8 @@
       changed_when: False
     - setup: # aka gather_facts
   tasks:
+  -name: Create Link
+    command: ln -fs /usr/ports/www/
   -name: Install pip
     command: pkg install py27-pip
   - name: Install SBCL
@@ -27,5 +29,19 @@
     command: pkg install -y git
   - name: Install psycopg2
     command: pip install psycopg2
-  - name:
+  - name: Install Postgres
     command: pkg install postgresql96-server postgresql postgresql96-client 
+  - name: Install OpenCV
+    command: pkg install OpenCV
+  - name: Install OpenCL
+    command: pkg install OpenCL
+  - name: Install OpenGL
+    command: pkg install OpenGL 
+  - name: Install node 
+    command: cd /usr/ports/www/node && make install
+  - name: Installing Angular
+    command: npm install -g @angular/cli
+  - name: Install redis package 
+    command: pkg install redis
+  - name: Pip install psycopg2
+    command: pip install psycopg2

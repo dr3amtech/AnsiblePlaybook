@@ -3,18 +3,7 @@
   hosts: server
   become: true
   
-#create a new database with name test
-- postgresql_db
-    name: test
-    encoding: UTF-8
-    lc_collate: de_DE.UTF-8
-    lc_ctype: de_DE.UTF-8
 
-- postgressql_db:
-    name: test
-    state: dump
-    target: /tmp/test.sql
-    
   vars:
     postgresql_database:
       - name: "{{remote_users}}"
@@ -29,5 +18,13 @@
      service:
         name: postgresql96-server
         state: started
+   #- name: Start postgresq automatically
+   #    command: sysrc postgresql_enable=yes\   
+   -name: Edit postgresql.conf
+        command: echo configure postgresql
+   - name: Init postgresql
+        command: sudo service postgresql oneinitdb
+   - name: Start postgresql
+        command: sudo service postgresql onestart
 # dump requires a target definition to which the database will be backed up
 # present implies that the database should be created if necessary
