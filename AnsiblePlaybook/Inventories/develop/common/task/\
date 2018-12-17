@@ -9,13 +9,13 @@
    ansible_python_interpreter: "/usr/local/bin/python2.7"
   tasks:
   -name: Set jail env selecting the jail location
-    command: setenv D /usr/jail/Bulma 
+	command: setenv D /usr/jail/Bulma 
   -name: Chnage directory 
     command: cd /usr/src
   -name: Create Jail 
     command: mkdir -p $D
   -name: Make World rebuild userland using make
-    command: make world DESTDIR=$D
+	command: make world DESTDIR=$D
   -name: Populate the directory subtree
     command: make installworld DESTDIR=$D
   -name: Make Distribution/ installs every needed configuration file
