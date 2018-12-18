@@ -1,5 +1,5 @@
 ---
-- name: Jail Configuration Unite
+- name: Config
   debugger: true
   hosts: servers
   become: yes
@@ -8,23 +8,23 @@
   vars:
    ansible_python_interpreter: "/usr/local/bin/python2.7"
   tasks:
-  -name: Set jail env selecting the jail location
+  - name: Set jail env selecting the jail location
     command: setenv D /usr/jail/Bulma 
-  -name: Chnage directory 
+  - name: Chnage directory 
     command: cd /usr/src
-  -name: Create Jail 
+  - name: Create Jail 
     command: mkdir -p $D
-  -name: Make World rebuild userland using make
+  - name: Make World rebuild userland using make
     command: make world DESTDIR=$D
-  -name: Populate the directory subtree
+  - name: Populate the directory subtree
     command: make installworld DESTDIR=$D
-  -name: Make Distribution/ installs every needed configuration file
-    command:  make distribution DESTDIR=$D
-  -name: Making access to device... be very very careful
+  - name: Make Distribution/ installs every needed configuration file
+    command: make distribution DESTDIR=$D
+  - name: Making access to device... be very very careful
     command: mount -t devfs devfs $D/dev 
-  -name: Set Permissions
+  - name: Set Permissions
     command: chmod 644 $D
-  -name: Mount Ports Begin Make Dierctory
+  - name: Mount Ports Begin Make Dierctory
     command: mkdir $D/ports
-  -name: Mount prorts in read only mode no need to write
+  - name: Mount prorts in read only mode no need to write
     command: mount_nullfs -o ro /usr/ports/ $D/usr/ports/
