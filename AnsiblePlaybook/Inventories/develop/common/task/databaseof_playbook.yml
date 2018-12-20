@@ -1,0 +1,15 @@
+---
+- name: Database Creation
+  hosts: server
+  become: true
+
+
+  tasks:
+  - name: Download PostgreSQL
+    command: pkg install postgresql96-server postgresql96-client
+  - name: Enable PostgreSQL to B oot Automatically
+    command: sysrc posgresql_enable=yes 
+  - name: Initialize the Database
+    command: service postgresql initdb
+  - name: Start Service
+    command: service postgresql start
