@@ -1,0 +1,9 @@
+---
+- name: Nginx 
+  hosts: servers
+  become: true
+  tasks:
+  - name: Change Directory
+    command: cd /usr/ports/www/nginx
+  - name: Clean install
+    command:  
