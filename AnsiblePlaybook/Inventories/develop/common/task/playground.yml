@@ -4,7 +4,7 @@
   hosts: servers
   become: yes
   become_method: sudo
-  gather_facts: no
+  gather_facts: yes
   vars:
    ansible_python_interpreter: "/usr/local/bin/python2.7"
   pre_tasks:
@@ -13,8 +13,8 @@
       changed_when: False
     - setup: # aka gather_facts
   tasks:
-  - name: Create Link
-    command: ln -fs /usr/ports/
+ # - name: Create Link
+ #   command: ln -fs /usr/ports/
   - name: Install pip
     command: pkg install py27-pip
   - name: Install SBCL
