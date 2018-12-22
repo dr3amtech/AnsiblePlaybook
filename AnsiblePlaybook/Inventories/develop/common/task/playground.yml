@@ -19,8 +19,8 @@
  #   command: pkg install py27-pip
   - name: Install SBCL
     command: pkg install -y sbcl
-  - name: Load QuickLisp
-    command: sbcl --load quicklisp.lisp
+ # - name: Load QuickLisp
+ #   command: sbcl --load quicklisp.lisp
   - name: Install QuickLisp
     command: sbcl (quicklisp-quickstart:install)
   - name: Install project Prove
