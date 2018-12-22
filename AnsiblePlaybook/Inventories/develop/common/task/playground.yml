@@ -13,45 +13,19 @@
       changed_when: False
     - setup: # aka gather_facts
   tasks:
- # - name: Create Link
- #   command: ln -fs /usr/ports/
- # - name: Install pip
- #   command: pkg install py27-pip
   - name: Install SBCL
     command: pkg install -y sbcl
- # - name: Load QuickLisp
- #   command: sbcl --load quicklisp.lisp
- # - name: Install QuickLisp
- #   command: sbcl quicklisp-quickstart:install
- # - name: Install project Prove
- #   command: ql:quickload :prove
   - name: Insatll Git
     command: pkg install -y git
- # - name: Install psycopg2
- #   command: pip install psycopg2
- # - name: Install Postgres
- #   command: pkg install postgresql96-server postgresql postgresql96-client 
   - name: Install OpenCV
-    command: cd /home/codejenkins/ports/graphics/opencv
-  - name: Make Install OpenCV
-    command: make install 
+    command: make -C /home/codejenkins/ports/graphics/opencv
   - name: Install OpenCL
-    command: cd /home/codejenkins/ports/graphics/opencl
-  - name: Make Install OpenCL
-    command: make install 
- # - name: Install OpenGL
- #   command: pkg install OpenGL 
+    command: make -C /home/codejenkins/ports/graphics/opencl
   - name: Install node 
-    command: cd /home/codejenkins/ports/www/node
-  - name: Make Install Node
-    command: make install
+    command: make -C /home/codejenkins/ports/www/node
   - name: Install neo4j 
-    command: cd /home/codejenkins/ports/databases/neo4j 
-  - name: Make Install neo4j
-    command: make install
+    command: make -C /home/codejenkins/ports/databases/neo4j 
   - name: Installing Angular
     command: npm install -g @angular/cli
   - name: Install redis package 
     command: pkg install redis
- # - name: Pip install psycopg2
- #   command: pip install psycopg2
