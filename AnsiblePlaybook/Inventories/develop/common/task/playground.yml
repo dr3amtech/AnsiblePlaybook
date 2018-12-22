@@ -32,11 +32,11 @@
  # - name: Install Postgres
  #   command: pkg install postgresql96-server postgresql postgresql96-client 
   - name: Install OpenCV
-    command: pkg install OpenCV
+    command: cd /usr/ports/graphics/opencv && make install 
   - name: Install OpenCL
-    command: pkg install OpenCL
-  - name: Install OpenGL
-    command: pkg install OpenGL 
+    command: cd /usr/ports/graphics/opencl 
+ # - name: Install OpenGL
+ #   command: pkg install OpenGL 
   - name: Install node 
     command: cd /ports/www/node && make install
   - name: Install neo4j 
