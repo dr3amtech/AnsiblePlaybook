@@ -18,13 +18,13 @@
   - name: Insatll Git
     command: pkg install -y git
   - name: Install OpenCV
-    command: make -C /home/codejenkins/ports/graphics/opencv
+    command: make -C /home/codejenkins/ports/graphics/opencv install
   - name: Install OpenCL
-    command: make -C /home/codejenkins/ports/graphics/opencl
+    command: make -C /home/codejenkins/ports/graphics/opencl install
   - name: Install node 
-    command: make -C /home/codejenkins/ports/www/node
+    command: make -C /home/codejenkins/ports/www/node install
   - name: Install neo4j 
-    command: make -C /home/codejenkins/ports/databases/neo4j 
+    command: make -C /home/codejenkins/ports/databases/neo4j install 
   - name: Installing Angular
     command: npm install -g @angular/cli
   - name: Install redis package 
