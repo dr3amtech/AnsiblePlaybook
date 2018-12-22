@@ -32,15 +32,23 @@
  # - name: Install Postgres
  #   command: pkg install postgresql96-server postgresql postgresql96-client 
   - name: Install OpenCV
-    command: cd /home/codejenkins/ports/graphics/opencv && make install 
+    command: cd /home/codejenkins/ports/graphics/opencv
+  - name: Make Install OpenCV
+    command: make install 
   - name: Install OpenCL
-    command: cd /home/codejenkins/ports/graphics/opencl 
+    command: cd /home/codejenkins/ports/graphics/opencl
+  - name: Make Install OpenCL
+    command: make install 
  # - name: Install OpenGL
  #   command: pkg install OpenGL 
   - name: Install node 
-    command: cd /home/codejenkins/ports/www/node && make install
+    command: cd /home/codejenkins/ports/www/node
+  - name: Make Install Node
+    command: make install
   - name: Install neo4j 
-    command: cd /homecodejenkins/ports/databases/neo4j/ && make install
+    command: cd /home/codejenkins/ports/databases/neo4j 
+  - name: Make Install neo4j
+    command: make install
   - name: Installing Angular
     command: npm install -g @angular/cli
   - name: Install redis package 
