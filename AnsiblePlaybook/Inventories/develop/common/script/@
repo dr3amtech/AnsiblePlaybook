@@ -1,0 +1,18 @@
+import os
+
+debug=False
+
+
+
+def androidConfiguration():
+	if debug:
+		print(os.getcwd()) 
+
+
+
+
+
+
+
+if __name__ =='__main__':
+androidConfiguration()	
