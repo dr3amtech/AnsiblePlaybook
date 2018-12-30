@@ -27,7 +27,7 @@ def androidConfiguration(argv):
 			break
 	if add_int_conf:
 		print('Adding configuration')
-		WX_file= open('/etc/rc.conf','append')
+		WX_file= open('/etc/rc.conf','a')
 
 		WX_file.write('cloned_interfaces=\'l01\'')
 		WX_file.close()
