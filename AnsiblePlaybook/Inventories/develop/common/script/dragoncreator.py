@@ -39,10 +39,10 @@ def ezjail(createJail,cloneJail):
 		print('File Found there is no need to create Jail')
 		if createJail:
 			print('Creating Jail')
-			os.system('Ansible-playbook JailMaker.yml')
+			os.system('Ansible-playbook JailMaker2.yml')
 		if cloneJail:
 			print('Cloning Jail')
-			os.sys('ansible-playbook CloneJailMakeri.yml') 
+			os.sys('ansible-playbook CloneJailMaker.yml') 
 	else:
 		print('install ezjail and create First Jaill')
 		os.system('Ansible-playbook --version')

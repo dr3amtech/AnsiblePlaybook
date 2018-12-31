@@ -1,12 +1,13 @@
 ---
 - name: Nginx
-  hosts: servers
+  hosts: localhost 
+  become: yes
   tasks:
    - name: nginx
      package:
-	    name: nginx
-		state: present
+            name: nginx
+            state: present
    - name: Start Nginx
      service:
-	    name: nginx
-		state: started
+            name: nginx
+            state: started
