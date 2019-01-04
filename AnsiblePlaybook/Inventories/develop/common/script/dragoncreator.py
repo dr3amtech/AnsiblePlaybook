@@ -51,6 +51,7 @@ def ezjail(createJail,cloneJail,ip_adress):
 					print('Service did not start')
 					exit()
 		if cloneJail:
+			#create from base jail with zfs
 			print('Cloning Jail')
 			os.sys('ansible-playbook CloneJailMaker.yml')
 
