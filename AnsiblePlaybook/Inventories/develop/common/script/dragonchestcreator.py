@@ -6,9 +6,9 @@ import fileinput
 debug=True
 
 def chestCreator(agrv):
-	installClient=[1]
-	installServer=[2]
-	enablesysrc=[3]
+	installClient=sys.argv[1]
+	installServer=sys.argv[2]
+	enablesysrc=sys.argv[3]
 	if debug:
 		print(installClient)
 		print(installServer)
