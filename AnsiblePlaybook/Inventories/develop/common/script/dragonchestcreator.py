@@ -10,6 +10,9 @@ def chestCreator(agrv):
 	installServer=[2]
 	enablesysrc=[3]
 	if debug:
+		print(installClient)
+		print(installServer)
+		print(enablesysrc)
 		print(os.getcwd())
 	#is system software installed
 	#todo check for version
