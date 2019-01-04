@@ -14,27 +14,29 @@ def chestCreator(agrv):
 	#is system software installed
 	#todo check for version
 	os.system('pkg info postgresql96-server >> checker.txt')
-	if os.stat('checker.txt').st_size>0:
-		if installServer:
-			#install and verify
-			if os.system('/usr/ports/databases/postgresql96-server && make install clean) == 0:
-					print('successful')
+	if pathlib.Path("checker.txt").is_file() :
+		if os.stat('checker.txt').st_size>0:
+			if installServer:
+				#install and verify
+				if os.system('/usr/ports/databases/postgresql96-server && make install clean') == 0:
+					print('Server installed successful')
 					if enablesysrc:
 						#todo if its start at runtime we need to handle the start time 
 						os.system('sysrc postgresql_enable=yes')
 					#start service
 					os.system('service postgresql start
-			else:
-				print('Error installing postgres')
-				exit()
+				else:
+					print('Error installing postgres')
+					exit()
 			#unlockChest()
-		if installClient:
-			#cd and cd - back to previous dir
-			os.system('cd /usr/ports/databases/postgresql96-client && make install clean')
-			os.remove(checker.txt)
-	os.remove(checker.txt)
-	print('postgres sql already installed')
-	exit()
+			if installClient:
+				#cd and cd - back to previous dir
+				if os.system('cd /usr/ports/databases/postgresql96-client && make install clean') == 0:
+					print('Client installed successful')
+				else:
+					print('Error installing Client')
+		os.remove(checker.txt)
+		print('postgres sql already installed')
 def unlockChest ():
 	#text_replace=''
 	#remote configuration
