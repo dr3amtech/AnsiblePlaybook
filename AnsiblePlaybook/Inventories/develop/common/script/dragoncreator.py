@@ -10,6 +10,7 @@ def androidConfiguration(argv):
 	add_int_conf=True
 	createJail=sys.argv[1]
 	cloneJail=sys.argv[2]
+	ip_adress=sys.argv[3]
 	if debug:
 		print(os.getcwd()) 
 	os.system('cd /')
@@ -39,12 +40,16 @@ def androidConfiguration(argv):
 		ezjail(createJail,cloneJail)
 		os.remove('checker.txt')
 
-def ezjail(createJail,cloneJail):
+def ezjail(createJail,cloneJail,ip_adress):
 	if pathlib.Path("ezjail.txt").is_file() :
 		print('File Found there is no need to create Jail')
 		if createJail:
 			print('Creating Jail')
-			os.system('Ansible-playbook JailMaker2.yml')
+			#should we be creating same services on every server
+			if os.system('ezjail-admin create  gohan \'l01|127.0.0.1,em0|{ip_adress}\'') == 0:
+				if os.system('service jail start gohan') not 1:
+					print('Service did not start')
+					exit()
 		if cloneJail:
 			print('Cloning Jail')
 			os.sys('ansible-playbook CloneJailMaker.yml')
