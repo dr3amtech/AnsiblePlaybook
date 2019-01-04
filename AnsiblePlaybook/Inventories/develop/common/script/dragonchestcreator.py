@@ -28,7 +28,7 @@ def chestCreator(agrv):
 						os.system('sysrc postgresql_enable=yes')
 					#start service
 					if os.system('service postgresql start') == 0:
-						print('Postgresql service started
+						print('Postgresql service started')
 					else:
 						print('Error starting service')
 						unlockChest ()
