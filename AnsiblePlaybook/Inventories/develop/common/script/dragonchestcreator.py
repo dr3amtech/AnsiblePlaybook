@@ -48,6 +48,7 @@ def chestCreator(agrv):
 					print('Error installing Client')
 					exit()
 		else:
+			unlockChest ()
 			print('postgres sql already installed')
 def unlockChest ():
 	print('Not unlocked yet')
