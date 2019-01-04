@@ -13,10 +13,12 @@ def androidConfiguration(argv):
 	ip_adress=sys.argv[3]
 	if debug:
 		print(os.getcwd()) 
+	#navigate to base directory
 	os.system('cd /')
 	os.system('pkg info ezjail >> checker.txt')
 	X_file = open('/etc/rc.conf','r')
-	print(X_file)
+	if debug:
+		print(X_file)
 	X_file = X_file.read().split('\n')
 	#is ezjail install
 	if os.stat('checker.txt').st_stat>0:
@@ -35,11 +37,11 @@ def androidConfiguration(argv):
 			WX_file.write('cloned_interfaces=\'l01\'')
 			WX_file.close()
 		os.system('cd /usr/ports/sysutils/ezjail && make install clean')
-		ezjail(createJail,cloneJail)
+		ezjail(createJail,cloneJail,ip_adress)
 		os.remove('checker.txt')
 
 def ezjail(createJail,cloneJail,ip_adress):
-	print('File Found there is no need to create Jail')
+	print('Creating File')
 	if createJail:
 		print('Creating Jail')
 		#should we be creating same services on every server
