@@ -13,7 +13,7 @@ def androidConfiguration(argv):
 	if debug:
 		print(os.getcwd()) 
 	os.system('cd /')
-	os.system('pkg info ezjail >> ezjail.txt')
+	os.system('pkg info ezjail >> checker.txt')
 	if debug:
 		os.system('echo /etc/rc.conf')
 		os.system('')
@@ -21,7 +21,7 @@ def androidConfiguration(argv):
 	print(X_file)
 	X_file = X_file.read().split('\n')
 	#is ezjail install
-	if not pathlib.Path("ezjail.txt").is_file() :
+	if not pathlib.Path("checker.txt").is_file() :
 		#Check configuration and add configuration
 		print('Install ezjail and create first Jail')
 		for i in X_file:
@@ -35,8 +35,9 @@ def androidConfiguration(argv):
 			WX_file= open('/etc/rc.conf','a')
 			WX_file.write('cloned_interfaces=\'l01\'')
 			WX_file.close()
-		os.system('/usr/ports/sysutils/ezjail make install')
+		os.system('/usr/ports/sysutils/ezjail make install clean')
 		ezjail(createJail,cloneJail)
+		os.remove('checker.txt')
 
 def ezjail(createJail,cloneJail):
 	if pathlib.Path("ezjail.txt").is_file() :
