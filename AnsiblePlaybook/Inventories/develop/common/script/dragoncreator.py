@@ -43,7 +43,7 @@ def androidConfiguration(argv):
 			if os.system('cd /usr/ports/sysutils/ezjail && make install clean') ==0:
 				print("Successful")
 			else:
-				print('Error installing ezjail')
+				print('Error installing ezjail or ezjail may already be installed')
 				exit(1)
 			ezjail(createJail,cloneJail,ip_adress)
 		os.remove('checker.txt')
