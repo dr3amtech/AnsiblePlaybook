@@ -13,6 +13,9 @@ def androidConfiguration(argv):
 	ip_adress=sys.argv[3]
 	if debug:
 		print(os.getcwd()) 
+		print(createJail)
+		print(cloneJail)
+		print(ip_adress)
 	#navigate to base directory
 	os.system('cd /')
 	os.system('pkg info ezjail >> checker.txt')
@@ -37,7 +40,11 @@ def androidConfiguration(argv):
 				WX_file= open('/etc/rc.conf','a')
 				WX_file.write('cloned_interfaces=\'l01\'')
 				WX_file.close()
-			os.system('cd /usr/ports/sysutils/ezjail && make install clean')
+			if os.system('cd /usr/ports/sysutils/ezjail && make install clean') ==0:
+				print("Successful")
+			else:
+				print('Error installing ezjail')
+				exit(1)
 			ezjail(createJail,cloneJail,ip_adress)
 		os.remove('checker.txt')
 
@@ -57,7 +64,7 @@ def ezjail(createJail,cloneJail,ip_adress):
 	if cloneJail:
 		#create from base jail with zfs
 		print('Cloning Jail')
-		os.sys('ansible-playbook CloneJailMaker.yml')
+		os.system('ansible-playbook CloneJailMaker.yml')
 
 if __name__=='__main__':
 	sys.exit(androidConfiguration(sys.argv))
