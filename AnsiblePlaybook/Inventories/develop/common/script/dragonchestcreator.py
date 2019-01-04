@@ -24,7 +24,7 @@ def chestCreator(agrv):
 						#todo if its start at runtime we need to handle the start time 
 						os.system('sysrc postgresql_enable=yes')
 					#start service
-					os.system('service postgresql start
+					os.system('service postgresql start')
 				else:
 					print('Error installing postgres')
 					exit()
