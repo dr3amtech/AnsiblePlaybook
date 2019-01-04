@@ -52,7 +52,7 @@ def chestCreator(agrv):
 			print('postgres sql already installed')
 def unlockChest ():
 	print('Not unlocked yet')
-	os.remove(checker.txt)
+	os.remove('checker.txt')
 	#text_replace=''
 	#remote configuration
 	#os.system('/usr/ports/databases/nano make install clean')
