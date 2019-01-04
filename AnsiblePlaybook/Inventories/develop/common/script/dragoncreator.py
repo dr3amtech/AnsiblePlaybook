@@ -38,7 +38,7 @@ def androidConfiguration(argv):
 			WX_file.close()
 		os.system('cd /usr/ports/sysutils/ezjail && make install clean')
 		ezjail(createJail,cloneJail,ip_adress)
-		os.remove('checker.txt')
+	os.remove('checker.txt')
 
 def ezjail(createJail,cloneJail,ip_adress):
 	print('Creating File')
@@ -46,9 +46,13 @@ def ezjail(createJail,cloneJail,ip_adress):
 		print('Creating Jail')
 		#should we be creating same services on every server
 		if os.system('ezjail-admin create  gohan \'l01|127.0.0.1,em0|{ip_adress}\'') == 0:
-			if os.system('service jail start gohan') not 1:
+			if os.system('service jail start gohan') == 1:
 				print('Service did not start')
 				exit()
+			else:
+				print('Succcessful')
+		else:
+			print('Error creating jail')
 	if cloneJail:
 		#create from base jail with zfs
 		print('Cloning Jail')
