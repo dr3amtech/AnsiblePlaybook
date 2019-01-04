@@ -49,3 +49,4 @@ def unlockChest ():
 
 if __name__ == '__main__':
 	sys.exit(chestCreator(sys.argv))
+
