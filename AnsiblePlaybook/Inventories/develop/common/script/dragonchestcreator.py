@@ -32,7 +32,7 @@ def chestCreator(agrv):
 			os.system('/usr/ports/databases/postgresql96-client make install clean')
 			os.remove(checker.txt)
 def unlockChest ():
-	text_replace=''
+	#text_replace=''
 	#remote configuration
 	#os.system('/usr/ports/databases/nano make install clean')
 	#X_file = fileinput.FileInput('/var/db/postgres/data96/postgresql.conf',inplace=True,bakup='.bak') as file:
