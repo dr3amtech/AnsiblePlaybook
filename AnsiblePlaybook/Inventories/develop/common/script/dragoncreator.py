@@ -39,7 +39,7 @@ def androidConfiguration(argv):
 				WX_file.close()
 			os.system('cd /usr/ports/sysutils/ezjail && make install clean')
 			ezjail(createJail,cloneJail,ip_adress)
-	os.remove('checker.txt')
+		os.remove('checker.txt')
 
 def ezjail(createJail,cloneJail,ip_adress):
 	print('Creating File')
