@@ -20,7 +20,7 @@ def chestCreator(agrv):
 	if pathlib.Path("checker.txt").is_file() :
 		if os.stat('checker.txt').st_size>0:
 			#TOdo
-			if installServer is 'True':
+			if installServer  == 'True':
 				#install and verify
 				if os.system('cd /usr/ports/databases/postgresql96-server && make install clean') == 0:
 					print('Server installed successful')
@@ -39,7 +39,7 @@ def chestCreator(agrv):
 					unlockChest ()
 					exit()
 			#unlockChest()
-			if installClient is True:
+			if installClient == 'True':
 				#cd and cd - back to previous dir
 				if os.system('cd /usr/ports/databases/postgresql96-client && make install clean') == 0:
 					print('Client installed successful')
@@ -47,7 +47,8 @@ def chestCreator(agrv):
 					unlockChest ()
 					print('Error installing Client')
 					exit()
-		print('postgres sql already installed')
+		else:
+			print('postgres sql already installed')
 def unlockChest ():
 	print('Not unlocked yet')
 	os.remove(checker.txt)
