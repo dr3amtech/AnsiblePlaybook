@@ -38,13 +38,13 @@ def chestCreator(agrv):
 		os.remove(checker.txt)
 		print('postgres sql already installed')
 def unlockChest ():
+	print('Not unlocked yet')
 	#text_replace=''
 	#remote configuration
 	#os.system('/usr/ports/databases/nano make install clean')
 	#X_file = fileinput.FileInput('/var/db/postgres/data96/postgresql.conf',inplace=True,bakup='.bak') as file:
 	#	for line in file:
 	#		print(line.replace())
-
 
 
 if __name__ == '__main__':
