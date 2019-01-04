@@ -20,26 +20,26 @@ def androidConfiguration(argv):
 	if debug:
 		print(X_file)
 	X_file = X_file.read().split('\n')
-	#is ezjail install
-	if os.stat('checker.txt').st_stat>0:
-		#Check configuration and add configuration
-		print('Install ezjail and create first Jail')
-		for i in X_file:
-			if 'cloned_interface'in i :
-				if debug:
-					print(i) 
-				print('Configuration Already Completed')
-				add_int_conf=False
-				break
-		if add_int_conf:
-			print('Adding configuration')
-			WX_file= open('/etc/rc.conf','a')
-			WX_file.write('cloned_interfaces=\'l01\'')
-			WX_file.close()
-		os.system('cd /usr/ports/sysutils/ezjail && make install clean')
-		ezjail(createJail,cloneJail,ip_adress)
 	if pathlib.Path("checker.txt").is_file() :
-		os.remove('checker.txt')
+		#is ezjail install
+		if os.stat('checker.txt').st_stat>0:
+			#Check configuration and add configuration
+			print('Install ezjail and create first Jail')
+			for i in X_file:
+				if 'cloned_interface'in i :
+					if debug:
+						print(i) 
+					print('Configuration Already Completed')
+					add_int_conf=False
+					break
+			if add_int_conf:
+				print('Adding configuration')
+				WX_file= open('/etc/rc.conf','a')
+				WX_file.write('cloned_interfaces=\'l01\'')
+				WX_file.close()
+			os.system('cd /usr/ports/sysutils/ezjail && make install clean')
+			ezjail(createJail,cloneJail,ip_adress)
+	os.remove('checker.txt')
 
 def ezjail(createJail,cloneJail,ip_adress):
 	print('Creating File')
