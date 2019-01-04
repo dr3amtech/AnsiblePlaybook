@@ -56,7 +56,7 @@ ip_address=string
 
 def ezjail(createJail,cloneJail,ip_adress):
 	print('Creating File')
-	if createJail:
+	if createJail =='True':
 		print('Creating Jail')
 		#should we be creating same services on every server
 		if os.system('ezjail-admin create  gohan \'l01|127.0.0.1,em0|{ip_adress}\'') == 0:
@@ -67,7 +67,7 @@ def ezjail(createJail,cloneJail,ip_adress):
 				print('Succcessful')
 		else:
 			print('Error creating jail')
-	if cloneJail:
+	if cloneJail=='True':
 		#create from base jail with zfs
 		print('Cloning Jail')
 		os.system('ansible-playbook CloneJailMaker.yml')
