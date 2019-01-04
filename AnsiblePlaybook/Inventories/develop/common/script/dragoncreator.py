@@ -22,7 +22,7 @@ def androidConfiguration(argv):
 	X_file = X_file.read().split('\n')
 	if pathlib.Path("checker.txt").is_file() :
 		#is ezjail install
-		if os.stat('checker.txt').st_stat>0:
+		if os.stat('checker.txt').st_size>0:
 			#Check configuration and add configuration
 			print('Install ezjail and create first Jail')
 			for i in X_file:
