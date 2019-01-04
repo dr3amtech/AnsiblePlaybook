@@ -17,7 +17,7 @@ def chestCreator(agrv):
 	if os.stat('checker.txt').st_size>0:
 		if installServer:
 			#install and verify
-			if (os.system('/usr/ports/databases/postgresql96-server && make install clean) == 0:
+			if os.system('/usr/ports/databases/postgresql96-server && make install clean) == 0:
 					print('successful')
 					if enablesysrc:
 						#todo if its start at runtime we need to handle the start time 
