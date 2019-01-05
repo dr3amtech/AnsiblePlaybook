@@ -20,7 +20,7 @@ def createNumbus():
 	os.system('pkg info nginx >> checker.txt')
 	if pathlib.Path('checker.txt').is_file():
 		print('File was found')
-		if os.stat('checker.txt').st_size()<1:
+		if os.stat('checker.txt').st_size==1:
 		#install Nginx
 			print('Install Nginx')
 			if os.system('cd /usr/ports/www/nginx && make install clean') ==0:
