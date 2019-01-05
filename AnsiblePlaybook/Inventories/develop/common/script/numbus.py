@@ -25,7 +25,7 @@ def createNumbus():
 			print('Install Nginx')
 			if os.system('cd /usr/ports/www/nginx/') ==0:
 				if debug:
-					print(os.cwd())
+					print(os.getcwd())
 				if os.system('make -DBATCH install') ==0:
 					print('Nginx install Successfully')
 			else:
