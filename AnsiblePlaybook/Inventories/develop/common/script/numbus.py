@@ -23,7 +23,7 @@ def createNumbus():
 		if os.stat('checker.txt').st_stat()==0:
 		#install Nginx
 			print('Install Nginx')
-			if os.system(cd /usr/ports/www/nginx && make install clean) ==0:
+			if os.system('cd /usr/ports/www/nginx && make install clean') ==0:
 				print('Nginx install Successfully')
 			else:
 				print('Error installing nginx')
