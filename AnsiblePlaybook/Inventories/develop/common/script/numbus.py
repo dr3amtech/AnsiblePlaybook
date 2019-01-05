@@ -23,7 +23,7 @@ def createNumbus():
 		if os.stat('checker.txt').st_size==0:
 		#install Nginx
 			print('Install Nginx')
-			os.chdir('cd /usr/ports/www/nginx/')
+			os.chdir('/usr/ports/www/nginx/')
 			if debug:
 				print(os.getcwd())
 			if os.system('make -DBATCH install') ==0:
