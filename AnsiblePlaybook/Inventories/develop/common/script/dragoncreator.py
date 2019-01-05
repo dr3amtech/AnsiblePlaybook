@@ -7,12 +7,12 @@ debug=True
 
 
 def androidConfiguration(argv):
-"""
-createJail=bool
-clonejail=bool
-ip_address=string
+	"""
+	createJail=bool
+	clonejail=bool
+	ip_address=string
 
-"""
+	"""
 	add_int_conf=True
 	createJail=sys.argv[1]
 	cloneJail=sys.argv[2]
