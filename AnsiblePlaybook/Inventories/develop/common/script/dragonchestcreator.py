@@ -19,7 +19,7 @@ def chestCreator(agrv):
 	os.system('pkg info postgresql96-server >> checker.txt')
 	if pathlib.Path("checker.txt").is_file() :
 		#todo size may be updating txt file
-		if os.stat('checker.txt').st_size>0:
+		if os.stat('checker.txt').st_size==0:
 			if installServer  == 'True':
 				#install and verify
 				if os.system('cd /usr/ports/databases/postgresql96-server && make install clean') == 0:
