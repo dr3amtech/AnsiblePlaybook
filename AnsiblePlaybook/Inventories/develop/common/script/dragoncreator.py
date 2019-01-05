@@ -49,9 +49,11 @@ ip_address=string
 			if os.system('cd /usr/ports/sysutils/ezjail && make install clean') ==0:
 				print("Successful")
 			else:
-				print('Error installing ezjail or ezjail may already be installed')
+				print('Error installing ezjail')
 				exit(1)
 			ezjail(createJail,cloneJail,ip_adress)
+		else:
+			print('ezjail may already be installed')
 		os.remove('checker.txt')
 
 def ezjail(createJail,cloneJail,ip_adress):
