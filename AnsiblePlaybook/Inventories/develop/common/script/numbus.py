@@ -22,15 +22,15 @@ def createNumbus():
 		print('File was found')
 		if os.stat('checker.txt').st_size==0:
 		#install Nginx
-			print('Install Nginx')
-			if os.system('cd /usr/ports/www/nginx/') ==0:
-				if debug:
-					print(os.getcwd())
-				if os.system('make -DBATCH install') ==0:
-					print('Nginx install Successfully')
-			else:
-				print('Error installing nginx')
-				exit()
+		print('Install Nginx')
+		os.chdir('cd /usr/ports/www/nginx/')
+		if debug:
+			print(os.getcwd())
+		if os.system('make -DBATCH install') ==0:
+			print('Nginx install Successfully')
+		else:
+			print('Error installing nginx')
+			exit()
 	else:
 		print('File was not found, Nginx Must be installed')
 			
