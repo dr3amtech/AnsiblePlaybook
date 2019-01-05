@@ -23,15 +23,25 @@ def createNumbus():
 		if os.stat('checker.txt').st_size==0:
 		#install Nginx
 			print('Install Nginx')
-			if os.system('cd /usr/ports/www/nginx/ && make -DBATCH clean') ==0:
-				print('Nginx install Successfully')
+			if os.system('cd /usr/ports/www/nginx/') ==0:
+				if os.system('make -DBATCH clean') ==0:
+					print('Nginx install Successfully')
 			else:
 				print('Error installing nginx')
 				exit()
 	else:
 		print('File was not found, Nginx Must be installed')
 			
+
+def configureNumbus():
 	
+
+
+def configureNumnusProxy():
+
+
+
+
 	
 if __name__=='__main__':
 	sys.exit(createNumbus())
