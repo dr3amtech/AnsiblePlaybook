@@ -22,7 +22,8 @@ def chestCreator(agrv):
 		if os.stat('checker.txt').st_size==0:
 			if installServer  == 'True':
 				#install and verify
-				if os.system('cd /usr/ports/databases/postgresql96-server && make install clean') == 0:
+				os.chdir('/usr/ports/databases/postgresql96-server')
+				if os.system(' make -DBATCH install') == 0:
 					print('Server installed successful')
 					if enablesysrc:
 						#todo if its start at runtime we need to handle the start time 
@@ -32,11 +33,9 @@ def chestCreator(agrv):
 						print('Postgresql service started')
 					else:
 						print('Error starting service')
-						unlockChest ()
 						exit()
 				else:
 					print('Error installing postgres')
-					unlockChest ()
 					exit()
 			#unlockChest()
 			if installClient == 'True':

@@ -15,8 +15,6 @@ debug=True
 def createNumbus():
 	print('creating  Numbus')
 	
-	
-	
 	os.system('pkg info nginx >> checker.txt')
 	if pathlib.Path('checker.txt').is_file():
 		print('File was found')
@@ -31,9 +29,10 @@ def createNumbus():
 			else:
 				print('Error installing nginx')
 				exit()
+		else:
+			print('Nginx Already installed')
 	else:
-		print('File was not found, Nginx Must be installed')
-			
+		print('File not found')
 
 def configureNumbus():
 	print('Todo')

@@ -46,7 +46,8 @@ ip_address=string
 				WX_file= open('/etc/rc.conf','a')
 				WX_file.write('cloned_interfaces=\'l01\'')
 				WX_file.close()
-			if os.system('cd /usr/ports/sysutils/ezjail && make install clean') ==0:
+			os.chdir('/usr/ports/sysutils/ezjail')
+			if os.system('make -DBATCH install')==0:
 				print("Successful")
 			else:
 				print('Error installing ezjail')
@@ -54,7 +55,6 @@ ip_address=string
 			ezjail(createJail,cloneJail,ip_adress)
 		else:
 			print('ezjail may already be installed')
-		os.remove('checker.txt')
 
 def ezjail(createJail,cloneJail,ip_adress):
 	print('Creating File')
