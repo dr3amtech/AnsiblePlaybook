@@ -26,7 +26,7 @@ def androidConfiguration(argv,data):
 	cloneJail=sys.argv[2]
 	ip_adress=sys.argv[3]
 	if debug:
-		print(data['config'])
+		print(data['Jails_file_locations']['config'])
 		print(os.getcwd()) 
 		print(createJail)
 		print(cloneJail)
