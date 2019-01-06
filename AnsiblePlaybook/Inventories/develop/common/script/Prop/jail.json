@@ -23,7 +23,7 @@
 		"inetd_enable":"YES",
 		"jail_sysvipc_allow":"",
 		"postgresql_enable":"YES",
-		"jail_sysvipc_allow":"YES",
+		"jail_sysvipc_allow":"YES"
 	
 	}
 }
