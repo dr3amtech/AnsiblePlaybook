@@ -6,8 +6,8 @@ import json
 debug=True
 
 def  configurationCollections():
-	with open('config.json') as json_data_file:
-		data = json.load('/Prop/jail.json')
+	with open('/Prop/jail.json') as json_data_file:
+		data = json.load(json_data_file')
 	return data
 	
 
@@ -28,8 +28,6 @@ def androidConfiguration(argv,data):
 		print(createJail)
 		print(cloneJail)
 		print(ip_adress)
-	#navigate to base directory
-	os.system('cd /')
 	os.system('pkg info ezjail >> checker.txt')
 	X_file = open('/etc/rc.conf','r')
 	if debug:
