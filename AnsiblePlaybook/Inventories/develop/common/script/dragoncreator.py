@@ -7,7 +7,7 @@ debug=True
 
 def  configurationCollections():
 	with open('/Prop/jail.json') as json_data_file:
-		data = json.load(json_data_file')
+		data = json.load(json_data_file)
 	return data
 	
 
