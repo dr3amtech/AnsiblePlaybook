@@ -23,6 +23,8 @@
     command: python /home/codejenkins/workspace/Configure_Jenkins_Agent/AnsiblePlaybook/AnsiblePlaybook/Inventories/develop/common/script/dragoncreator.py
   - name: Python postgresql installer
     command: python /home/codejenkins/workspace/Configure_Jenkins_Agent/AnsiblePlaybook/AnsiblePlaybook/Inventories/develop/common/script/dragonchest.py
+  - name: Install Ngnix
+    command: python /home/codejenkins/workspace/Configure_Jenkins_Agent/AnsiblePlaybook/AnsiblePlaybook/Inventories/develop/common/script/numbus.py
   - name: Install OpenCV
     command: make -C /home/codejenkins/ports/graphics/opencv install
   - name: Install OpenCL

@@ -1,0 +1,29 @@
+{
+    "Jails_id_space":{
+        "bulma":"x.x.x.12",
+        "gohan":"x.x.x.13",
+        "goku":"x.x.x.14",
+        "chichi":"x.x.x.15"
+    },
+    "Jails_file_locations":{
+       "config":"/etc/rc.conf",
+	   "ezjail":"/usr/ports/sysutils/ezjail"
+    },
+	"Jail_configuration_properties"{
+		"hostname":"kame",
+		"ifconfig_bge0":"DHCP",
+		"sshd_enable":"YES",
+		"moused_enable":"YES",
+		"ntpd_enable":"YES",
+		"dumpdev":"YES",
+		"ezjail_enable":"AUTO",
+		"gateway_enable":"YES",
+		"pf_enable":"YES",
+		"pf_rules":"/etc/pf.conf",
+		"inetd_enable":"YES"
+		"jail_sysvipc_allow":""
+		"postgresql_enable"="YES"
+		"jail_sysvipc_allow"="YES"
+	
+	}
+}

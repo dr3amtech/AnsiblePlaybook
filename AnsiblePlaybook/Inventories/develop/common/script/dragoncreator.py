@@ -1,12 +1,17 @@
 import os
 import sys
 import pathlib
+import json
 
 debug=True
 
+def  configurationCollections():
+	with open('config.json') as json_data_file:
+		data = json.load('/Prop/jail.json')
+	return data
+	
 
-
-def androidConfiguration(argv):
+def androidConfiguration(argv,data):
 	"""
 	createJail=bool
 	clonejail=bool
@@ -18,6 +23,7 @@ def androidConfiguration(argv):
 	cloneJail=sys.argv[2]
 	ip_adress=sys.argv[3]
 	if debug:
+		print(data)
 		print(os.getcwd()) 
 		print(createJail)
 		print(cloneJail)
@@ -56,10 +62,11 @@ def androidConfiguration(argv):
 		else:
 			print('ezjail may already be installed')
 
+
 def ezjail(createJail,cloneJail,ip_adress):
 	print('Creating File')
 	if createJail =='True':
-		print('Creating Jail')
+		print('Creating Jails')
 		#should we be creating same services on every server
 		if os.system('ezjail-admin create  gohan \'l01|127.0.0.1,em0|{ip_adress}\'') == 0:
 			if os.system('service jail start gohan') == 1:
@@ -75,5 +82,5 @@ def ezjail(createJail,cloneJail,ip_adress):
 		os.system('ansible-playbook CloneJailMaker.yml')
 
 if __name__=='__main__':
-	sys.exit(androidConfiguration(sys.argv))
+	sys.exit(androidConfiguration(sys.argv,configurationCollections()))
 	
