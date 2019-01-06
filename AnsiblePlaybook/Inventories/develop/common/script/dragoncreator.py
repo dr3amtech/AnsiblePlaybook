@@ -8,7 +8,7 @@ debug=True
 def  configurationCollections():
 	print(os.getcwd())
 	script_dit=os.path.dirname(__file__)
-	absfile=os.path.join(script_dit,'/Props/jail.json')
+	absfile=os.path.join(script_dit,'/Prop/jail.json')
 	with open(absfile) as json_data_file:
 		data = json.load(json_data_file)
 	return data
