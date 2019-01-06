@@ -9,7 +9,7 @@
        "config":"/etc/rc.conf",
 	   "ezjail":"/usr/ports/sysutils/ezjail"
     },
-	"Jail_configuration_properties"{
+	"Jail_configuration_properties":{
 		"hostname":"kame",
 		"ifconfig_bge0":"DHCP",
 		"sshd_enable":"YES",
@@ -20,10 +20,10 @@
 		"gateway_enable":"YES",
 		"pf_enable":"YES",
 		"pf_rules":"/etc/pf.conf",
-		"inetd_enable":"YES"
-		"jail_sysvipc_allow":""
-		"postgresql_enable"="YES"
-		"jail_sysvipc_allow"="YES"
+		"inetd_enable":"YES",
+		"jail_sysvipc_allow":"",
+		"postgresql_enable":"YES",
+		"jail_sysvipc_allow":"YES",
 	
 	}
 }

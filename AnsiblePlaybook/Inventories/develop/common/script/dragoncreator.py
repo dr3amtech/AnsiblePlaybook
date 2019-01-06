@@ -7,7 +7,9 @@ debug=True
 
 def  configurationCollections():
 	print(os.getcwd())
-	with open('/Prop/jail.json') as json_data_file:
+	script_dit=os.path.dirname(__file__)
+	absfile=os.path.join(script_dit)
+	with open(absfile) as json_data_file:
 		data = json.load(json_data_file)
 	return data
 	
@@ -24,7 +26,7 @@ def androidConfiguration(argv,data):
 	cloneJail=sys.argv[2]
 	ip_adress=sys.argv[3]
 	if debug:
-		print(data)
+		print(data['config'])
 		print(os.getcwd()) 
 		print(createJail)
 		print(cloneJail)
@@ -48,7 +50,7 @@ def androidConfiguration(argv,data):
 					break
 			if add_int_conf:
 				print('Adding configuration')
-				WX_file= open('/etc/rc.conf','a')
+				WX_file= open(data['config'],'a')
 				WX_file.write('cloned_interfaces=\'l01\'')
 				WX_file.close()
 			os.chdir('/usr/ports/sysutils/ezjail')
