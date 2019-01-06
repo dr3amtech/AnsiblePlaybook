@@ -6,6 +6,7 @@ import json
 debug=True
 
 def  configurationCollections():
+	print(os.getcwd())
 	with open('/Prop/jail.json') as json_data_file:
 		data = json.load(json_data_file)
 	return data
