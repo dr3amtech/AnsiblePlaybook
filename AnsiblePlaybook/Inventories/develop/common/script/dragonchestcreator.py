@@ -2,8 +2,14 @@ import os
 import sys
 import pathlib
 import fileinput
+import json
 
 debug=True
+
+
+def main(argv):
+	chestCreator(agrv)
+	schemacreation(agrv)
 
 def chestCreator(agrv):
 	installClient=sys.argv[1]
@@ -36,11 +42,12 @@ def chestCreator(agrv):
 						exit()
 				else:
 					print('Error installing postgres')
-					exit()
+					sys.exit()
 			#unlockChest()
 			if installClient == 'True':
 				#cd and cd - back to previous dir
-				if os.system('cd /usr/ports/databases/postgresql96-client && make install clean') == 0:
+				os.chdir('cd /usr/ports/databases/postgresql96-client')
+				if os.system('make -DBATCH install') == 0:
 					print('Client installed successful')
 				else:
 					unlockChest ()
@@ -49,6 +56,11 @@ def chestCreator(agrv):
 		else:
 			unlockChest ()
 			print('postgres sql already installed')
+
+
+def schemacreation():
+	os.system('psql -f /usr/home/jenkins/functions.sql -d <database>')
+			
 def unlockChest ():
 	print('Not unlocked yet')
 	os.remove('checker.txt')
@@ -58,8 +70,10 @@ def unlockChest ():
 	#X_file = fileinput.FileInput('/var/db/postgres/data96/postgresql.conf',inplace=True,bakup='.bak') as file:
 	#	for line in file:
 	#		print(line.replace())
+	
+	
 
 
 if __name__ == '__main__':
-	sys.exit(chestCreator(sys.argv))
+	sys.exit(main(sys.argv))
 

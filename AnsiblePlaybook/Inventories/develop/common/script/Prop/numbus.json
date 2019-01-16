@@ -1,0 +1,82 @@
+{
+    "Numbus_Header":{
+        "user":"wheel jenkins;",
+		"group":"wheel;",
+        "worker_processes":"5;",
+        "error_log":"logs/error.log;",
+        "pid":"logs/nginx.pid;",
+		"worker_rlimit_nofile":"8192;",
+		"error_log":  "/var/log/nginx/error.log;"
+    },
+    "Numbus_Events":{
+       "worker_connection":"4096;"
+	  },
+	"Numbus_HTTP":{
+		"include":[
+		"conf/mime.types;",
+		"/etc/nginx/proxy.conf;",
+		"/etc/nginx/fastcgi.conf;"
+		],
+		"default_type": "application/octet-stream;",
+        "index":"index.html;",
+		"default_type":"application/octet-stream;",
+		"access_log":"logs/access.log  main;",
+		"sendfile":"on;",
+		"tcp_nopush":"on;",
+		"server_names_hash_bucket_size":"128;",
+		"servers":[
+		{
+			"define":"Jenkins;",
+			"listen":"YES;",
+			"server_name":";",
+			"access_log":"logs/domain1.access.log  main;",
+			"root":";",
+		"location":[{
+		"fastcgi_pass":"127.0.0.1:1025;"
+			}]
+		},
+		{	
+			"define":"Simple Reverse-proxy;",
+			"listen":"80;",
+			"server_name":";",
+			"access_log":"logs/domain1.access.log  main;",
+			"location /":[{
+				"root":"/var/www/virtual/<ServerName>/htdocs;",
+				"expires":"30d;"
+				},
+			{
+				"proxy_pass":"http://127.0.0.1:8080;"		
+			}]
+			},
+		{
+			"define":"load balance;",
+			"server_name":"<servername>;",
+			"listen":"80;",
+			"access_log":"logs/domain1.access.log main;",
+			"location /":[{
+				"proxy_pass":"http:/<servername>;"
+			}]
+		},
+		{
+        "server_name": "redmine.DOMAIN.TLD;",
+        "root" :"/var/www/redmine/public;",
+        "location / ":[{
+                "try_files": "$uri @redmine;"
+        }],
+
+        "location @redmine": [{
+                "proxy_set_header":  "X-Forwarded-For $remote_addr;",
+                "proxy_pass":"http://redmine;"
+        }]
+		}
+		],
+		"upstream":{
+		"upstream:<servername>":[{
+		"127.0.0.3":":8000",
+		"127.0.0.2":":8081",
+		"192.168.0.1":":8000",
+		"192.168.0.2":":8081"
+		}]
+		}
+		}
+		}
