@@ -86,7 +86,7 @@ print(Numbus_Event)
 print('Numbus_Http')
 print(NUmbus_Event)	
 #copy old configuration file 
-#shutil .copyfile('C:\\users\\joshu\\git\\nginxtest.conf','C:\\users\joshu\\git\\nginctest.conf.bak')
+
 
 filewriter= open('<Path>','w')
 
