@@ -70,7 +70,7 @@ def include_configuration(value,filewriter):
 	for l_values in value:
 		filewriter.write('include'+" "+l_values+"\n")
 	
-json_loader=open('C:\\Users\\joshu\\git\\AnsiblePlaybook\\development\\AnsiblePlaybook\\AnsiblePlaybook\\Inventories\\develop\\common\\script\\Prop\\numbus.json')
+json_loader=open('<Path>')
 data=json.load(json_loader)
 json_loader.close() #close file
 
@@ -88,7 +88,7 @@ print(NUmbus_Event)
 #copy old configuration file 
 #shutil .copyfile('C:\\users\\joshu\\git\\nginxtest.conf','C:\\users\joshu\\git\\nginctest.conf.bak')
 
-filewriter= open('C:\\Users\joshu\\git\\nginxtest.conf','w')
+filewriter= open('<Path>','w')
 
 
 #update file

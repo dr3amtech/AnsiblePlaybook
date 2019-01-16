@@ -8,7 +8,7 @@ import json
 
 
 def testOne():
-	json_loader=open('C:\\Users\\joshu\\git\\AnsiblePlaybook\\development\\AnsiblePlaybook\\AnsiblePlaybook\\Inventories\\develop\\common\\script\\Prop\\numbus.json')
+	json_loader=open('<Path>')
 	data=json.load(json_loader)
 	json_loader.close() #close file
 	
@@ -17,12 +17,12 @@ def testOne():
 	Numbus_Events=data['Numbus_Events']
 	Numbus_HTTP=data['Numbus_HTTP']
 
-	json_loader=open('C:\\Users\\joshu\\git\\AnsiblePlaybook\\development\\AnsiblePlaybook\\AnsiblePlaybook\\Inventories\\develop\\common\\script\\Prop\\proxy.json')
+	json_loader=open('<Path>')
 	data_proxy =json.load(json_loader)
 	json_loader.close()
 	
-	fileWriter= open('C:\\Users\joshu\\git\\nginxtest.conf','w')
-	fileWriter_proxy= open('C:\\Users\joshu\\git\\proxy.conf','w')
+	fileWriter= open('<Path>','w')
+	fileWriter_proxy= open('<Path>','w')
 	configureProxy(data_proxy,fileWriter_proxy)
 	handleNumbusHeaderrequest(Numbus_Headers,fileWriter)
 	handleNumbusEvents(Numbus_Events,fileWriter)
