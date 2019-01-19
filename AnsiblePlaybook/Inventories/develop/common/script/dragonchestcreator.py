@@ -7,11 +7,13 @@ import json
 debug=True
 
 
-def main(argv):
-	chestCreator(agrv)
-	schemacreation(agrv)
+def main():
+	chestCreator()
+	schemacreation()
+	neo4jCreation()
+	sys.exit(0)
 
-def chestCreator(agrv):
+def chestCreator():
 	installClient=sys.argv[1]
 	installServer=sys.argv[2]
 	enablesysrc=sys.argv[3]
@@ -39,10 +41,10 @@ def chestCreator(agrv):
 						print('Postgresql service started')
 					else:
 						print('Error starting service')
-						exit()
+						sys.exit(1)
 				else:
 					print('Error installing postgres')
-					sys.exit()
+					sys.exit(1)
 			#unlockChest()
 			if installClient == 'True':
 				#cd and cd - back to previous dir
@@ -59,7 +61,12 @@ def chestCreator(agrv):
 
 
 def schemacreation():
-	os.system('psql -f /usr/home/jenkins/functions.sql -d <database>')
+	#os.system('psql db lucille')
+	#os.system('psql create user lucille')
+	#os.system('psql create user mothership')
+	#os.system('grant all privileges on database lucille to lucille')
+	os.system('psql -f /usr/home/jenkins/lucille.sql -d lucille')
+	os.system('psql -f /usr/home/jenkins/functions.sql -d lucille')
 			
 def unlockChest ():
 	print('Not unlocked yet')
@@ -72,7 +79,19 @@ def unlockChest ():
 	#		print(line.replace())
 	
 	
-
+def neo4jCreation():
+	os.system('pkg info neo4j >> checker.txt')
+	if pathlib.Path("checker.txt").is_file() :
+		#todo size may be updating txt file
+		if os.stat('checker.txt').st_size==0:
+			if installServer  == 'True':
+				#install and verify
+				os.chdir('/usr/ports/databases/neo4j')
+				if os.system(' make -DBATCH install') == 0:
+					print('Server installed successful')
+				else:
+					print('Error installing neo4j')
+					sys.exit(1)
 
 if __name__ == '__main__':
 	sys.exit(main(sys.argv))

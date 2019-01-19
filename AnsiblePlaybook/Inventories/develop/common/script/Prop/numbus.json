@@ -3,8 +3,7 @@
         "user":"wheel jenkins;",
 		"group":"wheel;",
         "worker_processes":"5;",
-        "error_log":"logs/error.log;",
-        "pid":"logs/nginx.pid;",
+        "#pid":"logs/nginx.pid;",
 		"worker_rlimit_nofile":"8192;",
 		"error_log":  "/var/log/nginx/error.log;"
     },
@@ -22,7 +21,7 @@
 		"default_type":"application/octet-stream;",
 		"access_log":"logs/access.log  main;",
 		"sendfile":"on;",
-		"tcp_nopush":"on;",
+		"#tcp_nopush":"on;",
 		"server_names_hash_bucket_size":"128;",
 		"servers":[
 		{
