@@ -20,9 +20,11 @@
   - name: Insatll Git
     command: pkg install -y git
   - name: Create Scripts dir 
-    command: mkdir /home/codejenkins/scripts
+    file: path=/home/codejenkins/scripts state=directory
+  - name: Go to the folder and execute command
+    command: chdir=/home/codejenkins/scripts
   - name: Clone Scripts
-    command: cd scripts & git clone https://github.com/dr3amtech/AnsiblePlaybook.git
+    command: git clone https://github.com/dr3amtech/AnsiblePlaybook.git
   - name: Python Jail Install/creator
     command: python /home/codejenkins/workspace/Configure_Jenkins_Agent/AnsiblePlaybook/AnsiblePlaybook/Inventories/develop/common/script/dragoncreator.py
   - name: Python postgresql installer
