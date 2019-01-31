@@ -21,10 +21,8 @@
     command: pkg install -y git
   - name: Create Scripts dir 
     file: path=/home/codejenkins/scripts state=directory
-  - name: Go to the folder and execute command
-    command: chdir=/home/codejenkins/scripts
-  - name: Clone Scripts
-    command: git clone https://github.com/dr3amtech/AnsiblePlaybook.git
+  - name: Go to the folder and execute clone
+    command: chdir=/home/codejenkins/scripts git clone https://github.com/dr3amtech/AnsiblePlaybook.git 
   - name: Python Jail Install/creator
     command: python /home/codejenkins/workspace/Configure_Jenkins_Agent/AnsiblePlaybook/AnsiblePlaybook/Inventories/develop/common/script/dragoncreator.py
   - name: Python postgresql installer
