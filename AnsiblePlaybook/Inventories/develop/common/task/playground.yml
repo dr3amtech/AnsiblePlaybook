@@ -24,11 +24,11 @@
   - name: Go to the folder and execute clone
     command: chdir=/home/codejenkins/scripts git clone https://github.com/dr3amtech/AnsiblePlaybook.git 
   - name: Python Jail Install/creator
-    command: python /home/codejenkins/workspace/Configure_Jenkins_Agent/AnsiblePlaybook/AnsiblePlaybook/Inventories/develop/common/script/dragoncreator.py
+    command: python /home/codejenkins/scripts/AnsiblePlaybook/AnsiblePlaybook/Inventories/develop/common/script/dragoncreator.py
   - name: Python postgresql installer
-    command: python /home/codejenkins/workspace/Configure_Jenkins_Agent/AnsiblePlaybook/AnsiblePlaybook/Inventories/develop/common/script/dragonchest.py
+    command: python /home/codejenkins/scripts/AnsiblePlaybook/AnsiblePlaybook/Inventories/develop/common/script/dragonchest.py
   - name: Install Ngnix
-    command: python /home/codejenkins/workspace/Configure_Jenkins_Agent/AnsiblePlaybook/AnsiblePlaybook/Inventories/develop/common/script/numbus.py
+    command: python /home/codejenkins/scripts/AnsiblePlaybook/AnsiblePlaybook/Inventories/develop/common/script/numbus.py
   - name: Install OpenCV
     command: make -C /home/codejenkins/ports/graphics/opencv install
   - name: Install OpenCL
