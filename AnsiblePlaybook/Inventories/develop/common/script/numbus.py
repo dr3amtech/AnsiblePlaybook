@@ -12,14 +12,14 @@ debug=True
 
 def main():
 	print('Creating  Numbus')
-	createRedmine()
+	#createRedmine()
 	createNumbus()
 	
 
 def createNumbus():
 	print('Installing  Nginx')
 	installRequest('nginx')
-	installRedmine
+	#installRedmine
 	configureNginxOnStart()
 	configureNumbus()
 	
