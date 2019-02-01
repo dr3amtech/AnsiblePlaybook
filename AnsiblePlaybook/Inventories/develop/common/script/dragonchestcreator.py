@@ -36,12 +36,14 @@ def chestCreator():
 					if enablesysrc:
 						#todo if its start at runtime we need to handle the start time 
 						os.system('sysrc postgresql_enable=yes')
-					#start service
-					if os.system('service postgresql start') == 0:
-						print('Postgresql service started')
-					else:
-						print('Error starting service')
-						sys.exit(1)
+					#init database
+					if os.system('service postgresql initdb') ==0:
+						#start service
+						if os.system('service postgresql start') == 0:
+							print('Postgresql service started')
+						else:
+							print('Error starting service')
+							sys.exit(1)
 				else:
 					print('Error installing postgres')
 					sys.exit(1)
