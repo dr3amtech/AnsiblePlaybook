@@ -73,7 +73,7 @@ def configureNumbus():
 	Numbus_Events=data['Numbus_Events']
 	Numbus_HTTP=data['Numbus_HTTP']
 
-	json_loader=open(script_dit,'Prop/numbus.jsonproxy.json')
+	json_loader=open(script_dit,'Prop/proxy.json')
 	data_proxy =json.load(json_loader)
 	json_loader.close()
 	
