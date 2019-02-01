@@ -69,7 +69,7 @@ def ezjail(createJail,cloneJail,ip_adress):
 	if createJail =='True':
 		print('Creating Jails')
 		#should we be creating same services on every server
-		if os.system('ezjail-admin create  gohan \'l01|127.0.0.1,em0|{ip_adress}\'') == 0:
+		if os.system('ezjail-admin create  gohan \'l01|127.0.0.1,em0|192.168.1.113\'') == 0:
 			if os.system('service jail start gohan') == 1:
 				print('Service did not start')
 				exit()
