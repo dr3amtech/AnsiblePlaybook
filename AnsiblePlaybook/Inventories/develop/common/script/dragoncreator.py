@@ -22,9 +22,9 @@ def androidConfiguration(argv,data):
 
 	"""
 	add_int_conf=True
-	createJail=sys.argv[1]
-	cloneJail=sys.argv[2]
-	ip_adress=sys.argv[3]
+	createJail=True
+	cloneJail=False
+	ip_adress=
 	if debug:
 		print(data['Jails_file_locations']['config'])
 		print(os.getcwd()) 
