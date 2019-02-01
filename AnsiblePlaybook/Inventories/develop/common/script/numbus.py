@@ -49,8 +49,10 @@ def installRequest(tech):
 		print('File not found')
 
 def configureNumbus():
+	script_dit=os.path.dirname(__file__)
+	absfile=os.path.join(script_dit,'Prop/numbus.json')
 	#Collect Json proxy configuration from numusproxy.conf
-	json_loader=open('/home/jenkins/Configure_Jenkins_Agent/AnsiblePlaybook/development/AnsiblePlaybook/AnsiblePlaybook/Inventories/develop/common/script/Prop/numbus.json')
+	json_loader=open(absfile)
 	data=json.load(json_loader)
 	json_loader.close() #close file
 	
@@ -64,13 +66,13 @@ def configureNumbus():
 
 	#open file
 	filewriter=  open('/usr/local/etc/nginx/nginx.conf','w')
-	fileWriter_proxy= open('C:\\Users\joshu\\git\\proxy.conf','w')
+	fileWriter_proxy= open('/usr/local/etc/nginx/proxy.conf','w')
 	
 	Numbus_Headers=data['Numbus_Header']
 	Numbus_Events=data['Numbus_Events']
 	Numbus_HTTP=data['Numbus_HTTP']
 
-	json_loader=open('/home/jenkins/Configure_Jenkins_Agent/AnsiblePlaybook/development/AnsiblePlaybook/AnsiblePlaybook/Inventories/develop/common/script/Prop/numbus.jsonproxy.json')
+	json_loader=open(script_dit,'Prop/numbus.jsonproxy.json')
 	data_proxy =json.load(json_loader)
 	json_loader.close()
 	
