@@ -14,9 +14,10 @@ def main():
 	sys.exit(0)
 
 def chestCreator():
-	installClient=sys.argv[1]
-	installServer=sys.argv[2]
-	enablesysrc=sys.argv[3]
+	#Change to Configuration
+	installClient=True
+	installServer=True
+	enablesysrc=True
 	if debug:
 		print(installClient)
 		print(installServer)
