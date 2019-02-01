@@ -30,7 +30,7 @@ def chestCreator():
 		if os.stat('checker.txt').st_size==0:
 			if installServer  == 'True':
 				#install and verify
-				os.chdir('/usr/ports/databases/postgresql96-server')
+				os.chdir('/usr/ports/databases/postgresql96-server/')
 				if os.system(' make -DBATCH install') == 0:
 					print('Server installed successful')
 					if enablesysrc:
@@ -50,7 +50,7 @@ def chestCreator():
 			#unlockChest()
 			if installClient == True:
 				#cd and cd - back to previous dir
-				os.chdir('cd /usr/ports/databases/postgresql96-client')
+				os.chdir('/usr/ports/databases/postgresql96-client/')
 				if os.system('make -DBATCH install') == 0:
 					print('Client installed successful')
 				else:
