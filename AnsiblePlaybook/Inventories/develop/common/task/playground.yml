@@ -39,7 +39,7 @@
   - name: Install neo4j 
     command: pkg install -y neo4j  
   - name: Install npm
-    command pkg install -y npm
+    command: pkg install -y npm
   - name: Install node
     command: pkg install -y node
   - name: Installing Angular
