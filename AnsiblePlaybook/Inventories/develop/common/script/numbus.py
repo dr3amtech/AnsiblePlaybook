@@ -58,7 +58,7 @@ def configureNumbus():
 	json_loader.close() #close file
 	
 	#copy old configuration file 
-	 shutil .copyfile('/usr/local/etc/nginx/nginx.conf','/usr/local/etc/nginx/nginx.conf.bak')
+	shutil .copyfile('/usr/local/etc/nginx/nginx.conf','/usr/local/etc/nginx/nginx.conf.bak')
 	 
 
 	#Go to /usr/local/etc/nginx/nginx.conf:
