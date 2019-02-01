@@ -46,7 +46,7 @@ def chestCreator():
 					print('Error installing postgres')
 					sys.exit(1)
 			#unlockChest()
-			if installClient == 'True':
+			if installClient == True:
 				#cd and cd - back to previous dir
 				os.chdir('cd /usr/ports/databases/postgresql96-client')
 				if os.system('make -DBATCH install') == 0:
@@ -84,7 +84,7 @@ def neo4jCreation():
 	if pathlib.Path("checker.txt").is_file() :
 		#todo size may be updating txt file
 		if os.stat('checker.txt').st_size==0:
-			if installServer  == 'True':
+			if installServer  == True:
 				#install and verify
 				os.chdir('/usr/ports/databases/neo4j')
 				if os.system(' make -DBATCH install') == 0:
