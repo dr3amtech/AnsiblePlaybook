@@ -161,7 +161,7 @@ def configureProxy(data_proxy,fileWriter_proxy):
 def configureNginxOnStart():
 	#open file
 	filewriter=  open('/etc/rc.conf','a')
-	filewriter.write('nginx_enable=YES')
+	filewriter.write('\nnginx_enable=YES')
 	
 if __name__=='__main__':
 	sys.exit(main())
