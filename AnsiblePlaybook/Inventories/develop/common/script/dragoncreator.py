@@ -32,7 +32,7 @@ def androidConfiguration(argv,data):
 		print(cloneJail)
 		print(ip_adress)
 	os.system('pkg info ezjail >> checker.txt')
-	X_file = open('/etc/rc.conf','r')
+	X_file = open(data['Jails_file_locations']['config'],'r')
 	if debug:
 		print(X_file)
 	X_file = X_file.read().split('\n')
@@ -50,7 +50,7 @@ def androidConfiguration(argv,data):
 					break
 			if add_int_conf:
 				print('Adding configuration')
-				WX_file= open(data['config'],'a')
+				WX_file= open(data['Jails_file_locations']['config'],'a')
 				WX_file.write('cloned_interfaces=\'l01\'')
 				WX_file.close()
 			os.chdir('/usr/ports/sysutils/ezjail')
