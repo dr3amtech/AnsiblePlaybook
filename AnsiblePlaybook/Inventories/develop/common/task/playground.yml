@@ -38,7 +38,11 @@
     command: pkg install -y node 
   - name: Install neo4j 
     command: pkg install -y neo4j  
+  - name: Install npm:
+    command pkg install -y npm
+  - name: Install node
+    command: pkg install -y node
   - name: Installing Angular
     command: npm install -g @angular/cli
   - name: Install redis package 
-    command: pkg install redis
+    command: pkg install -y redis
