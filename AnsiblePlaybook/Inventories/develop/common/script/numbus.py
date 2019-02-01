@@ -29,27 +29,24 @@ def createRedmine():
 	
 def installRequest(tech):
 	print(tech)
-	if os.system('pkg info '+tech+'>> checker.txt') == 0:
-		if pathlib.Path('checker.txt').is_file():
-			print('File was found')
-			if os.stat('checker.txt').st_size==0:
-			#install Nginx
-				print('Install '+tech)
-				os.chdir('/usr/ports/www/'+tech+'/')
-				if debug:
-					print(os.getcwd())
-				if os.system('make -DBATCH install') ==0:
-					print(tech+' install Successfully')
-				else:
-					print('Error installing '+tech)
-					sys.exit()
+	os.system('pkg info '+tech+'>> checker.txt')
+	if pathlib.Path('checker.txt').is_file():
+		print('File was found')
+		if os.stat('checker.txt').st_size==0:
+		#install Nginx
+			print('Install '+tech)
+			os.chdir('/usr/ports/www/'+tech+'/')
+			if debug:
+				print(os.getcwd())
+			if os.system('make -DBATCH install') ==0:
+				print(tech+' install Successfully')
+			else:
+				print('Error installing '+tech)
+				sys.exit(1)
 			else:
 				print(tech+' Already Installed')
-		else:
-			print('File not found')
 	else:
-		print('Issue writing to checker file')
-	
+		print('File not found')
 
 def configureNumbus():
 	#Collect Json proxy configuration from numusproxy.conf
@@ -89,7 +86,7 @@ def configureNumbus():
 	if os.system('service nginx start')== 0:
 		print('Nginx Started Successfully')
 	else:
-		print(Error Starting Nginx)
+		print('Error Starting Nginx')
 		sys.exit()
 
 
