@@ -31,13 +31,13 @@
   - name: Install Ngnix
     command: python /home/codejenkins/scripts/AnsiblePlaybook/AnsiblePlaybook/Inventories/develop/common/script/numbus.py
   - name: Install OpenCV
-    command: chdir=/usr/ports/graphics/opencv make -DBATCH install
+    command: pkg install -y opencv
   - name: Install OpenCL
-    command: chdir=/usr/ports/graphics/opencl make -DBATCH install
+    command: pkg install -y opencl
   - name: Install node 
-    command: chdir=/usr/ports/www/node make -DBATCH install
+    command: pkg install -y node 
   - name: Install neo4j 
-    command: chdir=/usr/ports/databases/neo4j make -DBATCH install 
+    command: pkg install -y neo4j  
   - name: Installing Angular
     command: npm install -g @angular/cli
   - name: Install redis package 
