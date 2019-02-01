@@ -43,8 +43,8 @@ def installRequest(tech):
 			else:
 				print('Error installing '+tech)
 				sys.exit(1)
-			else:
-				print(tech+' Already Installed')
+		else:
+			print(tech+' Already Installed')
 	else:
 		print('File not found')
 
