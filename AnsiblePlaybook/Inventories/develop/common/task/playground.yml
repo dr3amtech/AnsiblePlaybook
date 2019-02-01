@@ -3,7 +3,6 @@
   debugger: true
   hosts: servers
   become: yes
-  become_method: sudo
   gather_facts: yes
   vars:
    ansible_python_interpreter: "/usr/local/bin/python2.7"
@@ -17,6 +16,8 @@
     command: python -m ensurepip
   - name: Install pathlib module
     command: pip install pathlib
+  - name: Update Ports
+    command: portsnap fetch
   - name: Update Ports
     command: portsnap update
   - name: Install SBCL
