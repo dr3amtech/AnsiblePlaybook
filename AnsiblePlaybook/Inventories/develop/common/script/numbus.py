@@ -45,6 +45,7 @@ def installRequest(tech):
 				sys.exit(1)
 		else:
 			print(tech+' Already Installed')
+			exit(0)
 	else:
 		print('File not found')
 
