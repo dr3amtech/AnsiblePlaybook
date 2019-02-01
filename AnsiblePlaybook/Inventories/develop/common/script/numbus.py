@@ -28,7 +28,7 @@ def createRedmine():
 	installRequest('redmine')
 	
 def installRequest(tech):
-	tech()
+	print(tech)
 	if os.system('pkg info '+tech+'>> checker.txt') == 0:
 		if pathlib.Path('checker.txt').is_file():
 			print('File was found')
