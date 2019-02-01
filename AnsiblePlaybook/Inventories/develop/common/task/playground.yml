@@ -16,12 +16,6 @@
     command: python -m ensurepip
   - name: Install pathlib module
     command: pip install pathlib
-  - name: Ports Fetch
-    command: portsnap fetch
-  - name: Ports Extract
-    command: portsnap extract
-  - name: Update Ports
-    command: portsnap update
   - name: Install SBCL
     command: pkg install -y sbcl
   - name: Insatll Git
