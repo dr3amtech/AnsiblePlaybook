@@ -16,8 +16,10 @@
     command: python -m ensurepip
   - name: Install pathlib module
     command: pip install pathlib
-  - name: Update Ports
+  - name: Ports Fetch
     command: portsnap fetch
+  - name: Ports Extract
+    command: portsnap extract
   - name: Update Ports
     command: portsnap update
   - name: Install SBCL
